@@ -2434,6 +2434,7 @@ if (reversed == null) { reversed = false; }
 	this.actionFrames = [0,1];
 	// timeline functions:
 	this.frame_0 = function() {
+		log('2-1-0113-v5')
 		var _this=this;
 		this.powers=[1500,130,370,140,360,50];
 		this.levels=[120,330,500,700,1000,9999];
@@ -2573,9 +2574,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1768284797077", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1768284797118", id:"bgm"},
-		{src:"sounds/click.mp3?1768284797118", id:"click"}
+		{src:"images/index_atlas_1.png?1768285316882", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1768285316915", id:"bgm"},
+		{src:"sounds/click.mp3?1768285316915", id:"click"}
 	],
 	preloads: []
 };
