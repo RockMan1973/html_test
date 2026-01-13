@@ -515,7 +515,7 @@ if (reversed == null) { reversed = false; }
 		if(this.totalFrames == 1) {
 			this.isSingleFrame = true;
 		}
-		var _this=this,x=5,index=root.btns.getChildIndex(this.parent);
+		var _this=this,x=5,index=root.btns2.getChildIndex(this.parent);
 		_this.txt = document.createElement('input');
 		_this.txt.type='text';
 		_this.txt.style.position = "absolute";
@@ -544,9 +544,14 @@ if (reversed == null) { reversed = false; }
 		_this.Show=function(){
 			_this.txt.style.display='block';
 		}
+		_this.txt.addEventListener('keyup',function(){
+			//this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
+			root.btns2.keyin(_this);
+		})
 		_this.txt.addEventListener('change',function(){
 			//this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
-			root.btns.keyin(_this);
+			root.btns2.keyin(_this);
+			_this.text=root.sets2[index];
 		})
 	}
 
@@ -585,7 +590,7 @@ if (reversed == null) { reversed = false; }
 		if(this.totalFrames == 1) {
 			this.isSingleFrame = true;
 		}
-		var _this=this,x=3,index=root.btns.getChildIndex(this.parent);
+		var _this=this,x=3,index=root.btns1.getChildIndex(this.parent);
 		_this.txt = document.createElement('input');
 		_this.txt.type='text';
 		_this.txt.style.position = "absolute";
@@ -614,8 +619,13 @@ if (reversed == null) { reversed = false; }
 		_this.Show=function(){
 			_this.txt.style.display='block';
 		}
+		_this.txt.addEventListener('keyup',function(){
+			//this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
+			root.btns1.keyin(_this);
+		})
 		_this.txt.addEventListener('change',function(){
-			this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
+			//root.btns1.keyin(_this);
+			this.value = root.hours[index];
 		})
 	}
 
@@ -1902,6 +1912,7 @@ if (reversed == null) { reversed = false; }
 			this.isSingleFrame = true;
 		}
 		var _this=this,mc,index,hour,str='',timeout;
+		root.btns1=this;
 		for (var i in _this.children) _this.children[i].gotoAndStop(0);
 		this.Hide = function (){
 			for (var i in _this.children){
@@ -1922,20 +1933,19 @@ if (reversed == null) { reversed = false; }
 		
 		this.on("removed", function (evt) {
 			_this.removeEventListener('click',Click);
-			window.removeEventListener('keydown', keyin);
+			//window.removeEventListener('keydown', keyin);
 		});
 		init();
 		function init(){
-			log('btns1.init()')
-			root.btns=_this;
+			log('btns1.init()');
 			root.BT_lock1.visible = !root.sets.filter(n=> n>0).length;
 			for (var i in _this.children){
 				if (root.sets[i]==0) continue;
 				_this.children[i].gotoAndStop(1);
-				//_this.children[i].num.Show();
+				_this.children[i].num.Show();
 			}
 			_this.addEventListener('click',Click);
-			window.addEventListener('keyup', keyin);
+			//window.addEventListener('keyup', keyin);
 		}
 		
 		function Click(e){
@@ -1970,10 +1980,9 @@ if (reversed == null) { reversed = false; }
 					break;
 			}
 		}
-		function keyin(e) {
-			if (mc==null) return;
-			mc.num.text = mc.num.text.replace(/[^0-9.]/g, "");	
-			hour = number(mc.num.text);
+		this.keyin = function (mc) {
+			mc.text = mc.text.replace(/[^0-9.]/g, "");	
+			hour = number(mc.text);
 			root.sets[index] = root.hours[index] =  Math.min(Math.max(hour, .5), 24);
 		}
 	}
@@ -2339,7 +2348,7 @@ if (reversed == null) { reversed = false; }
 		});
 		function init(){
 			log('btns2.init()')
-			root.btns=_this;
+			root.btns2=_this;
 			root.BT_lock3.visible=true;
 			root.sets2 = [0,0,0,0,0,0,0];
 			_this.mW.text = root.job;
@@ -2350,14 +2359,14 @@ if (reversed == null) { reversed = false; }
 		}
 		function keyin(mc) {
 			omW=0;
-			for (var i in root.sets2) {
+			for (var i=0; i<7; i++) {
 				if (i!=mc.i) omW+=root.sets2[i];
 			}
 			log(root.job-omW,mc.text, mc.i);
 			mc.text = mc.text.replace(/[^0-9.]/g, "");
-			mc.text = root.sets2[mc.i] = Math.round2(Math.max(Math.min(number(mc.text??0),root.job-omW),0),1);
+			root.sets2[mc.i] = Math.round2(Math.max(Math.min(number(mc.text??0),root.job-omW),0),1);
 			_this.mW.text = Math.round2(root.job-omW-root.sets2[mc.i],1);
-			mc.gotoAndStop(mc.text>0?1:0);
+			mc.parent.gotoAndStop(mc.text>0?1:0);
 			root.BT_lock3.visible = !(_this.mW.text=='0');
 			drawPie(root.sets2, _this.shape, 260, colors);
 		}
@@ -2453,12 +2462,12 @@ if (reversed == null) { reversed = false; }
 					break;
 				case 'BT_next1':
 					playSound('click');
-					_this.btns.Hide();
+					_this.btns1.Hide();
 					_this.gotoAndStop(3);
 					break;
 				case 'BT_next2':
 					playSound('click');
-					root.btns.Reset();
+					root.btns1.Reset();
 					_this.gotoAndStop(4);
 					break;
 				case 'BT_next3':
@@ -2564,9 +2573,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1768211249577", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1768211249609", id:"bgm"},
-		{src:"sounds/click.mp3?1768211249609", id:"click"}
+		{src:"images/index_atlas_1.png?1768276192976", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1768276193009", id:"bgm"},
+		{src:"sounds/click.mp3?1768276193009", id:"click"}
 	],
 	preloads: []
 };
