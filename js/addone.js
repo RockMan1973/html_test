@@ -32,7 +32,7 @@ Object.defineProperty(createjs.MovieClip.prototype, "getCenter", {value:function
 	return obj;
 }});
 Object.defineProperty(window.__proto__, "root", {get:function (){ return stage.getChildAt(0)}});
-Object.defineProperty(createjs.MovieClip.prototype, "on", {value:function (a,b){
+/*Object.defineProperty(createjs.MovieClip.prototype, "on", {value:function (a,b){
 	var _this=this;
 	if (isMobile) {
 		if (a!="click") a = a + "m";
@@ -41,7 +41,7 @@ Object.defineProperty(createjs.MovieClip.prototype, "on", {value:function (a,b){
 		_this.root.ct.text = a+"";
 	}
 	_this.addEventListener(a,b);
-}});
+}});*/
 Object.defineProperty(window.__proto__, "isiOS", {get:function (){ return navigator.userAgent.match(/iPhone|iPad|iPod/i);}});
 Object.defineProperty(window.__proto__, "isAndroid", {get:function (){ return navigator.userAgent.match(/Android/i);}});
 Object.defineProperty(window.__proto__, "isMobile", {get:function (){ return isiOS || isAndroid;}});
@@ -54,10 +54,30 @@ Object.defineProperty(window.__proto__, "Play", {value:function() { stage.childr
 Object.defineProperty(window.__proto__, "Check", {value:function(n) { stage.children[0].Check(n); }});
 Object.defineProperty(Math.__proto__, "round2", {value:function(n,s) { return Math.round(n * Math.pow(10, s)) / Math.pow(10, s); }});
 
+var scale=1;
+function Resize(w,h) {
+	const iw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	const ih = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+	//log( iw,w, ih,h );
+	var scaleX=iw/w, scaleY=ih/h;
+	scale=Math.min(scaleX,scaleY);
+	//log(scaleX, scaleY, scale);
+	var s='scale('+scale+')';
+	anim_container.style.transformOrigin="left top";
+	anim_container.style.transform=s;
+	anim_container.style.width=(w*scale)+'px';
+	anim_container.style.height=(h*scale)+'px';
+	//canvas.style.left = (w*(scale-1)/2)+'px';
+	//canvas.style.top = (h*(scale-1)/2)+'px';
+
+	
+	//自動隱藏網址列---因安全性問題被禁用了
+	//setTimeout(function(){ window.scrollTo(0, 1); }, 10);
+}
 function playSound(id, loop) {
 	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 	return createjs.Sound.play(id, {loop:loop});
-	
+
 }
 function Draw(mc){
 	var g = new createjs.Graphics();
@@ -94,3 +114,11 @@ function drawPie(data, mc, radius = 80, color = ["#f66", "#6c6", "#66f", "#fc6",
     startAngle = endAngle;
   });
 };
+function downloadDataURL(filename) {
+  var a = document.createElement("a");
+  a.href = stage.toDataURL("#fff","image/png");
+  a.download = filename || "image.png";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}

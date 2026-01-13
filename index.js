@@ -34,7 +34,7 @@ lib.ssMetadata = [
 
 
 
-(lib.a_2png複製 = function() {
+(lib.a_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
@@ -407,10 +407,14 @@ if (reversed == null) { reversed = false; }
 			for (var i=1; i<=6; i++) {
 				_this['hour'+i].text=root.sets[i-1];
 				consu+=root.sets[i-1]*root.powers[i-1];
-				//log(consu)
 			}
 			root.job= Math.round2(consu*60/1000,1);
-			cost = root.job * root.costs[root.levels.findIndex(v=>v>root.job)];
+			for ( i=0; root.levels[i]<root.job; i++) {
+				cost += root.levels[i]*root.costs[i];
+				log(cost, root.levels[i], root.costs[i])
+			}
+			cost += (root.job-(root.levels[i-1]??0)) * root.costs[i];
+			log(cost, (root.job-(root.levels[i-1]??0)), root.costs[i]);
 			_this.consu.text=root.job;
 			_this.cost.text = root.cost = Math.round(cost);
 		}
@@ -426,7 +430,7 @@ if (reversed == null) { reversed = false; }
 	this.cost.lineHeight = 58;
 	this.cost.lineWidth = 256;
 	this.cost.parent = this;
-	this.cost.setTransform(394.05,-259.5);
+	this.cost.setTransform(394.05,-249.5);
 
 	this.consu = new cjs.Text("10", "50px 'Arial'", "#666666");
 	this.consu.name = "consu";
@@ -434,7 +438,7 @@ if (reversed == null) { reversed = false; }
 	this.consu.lineHeight = 58;
 	this.consu.lineWidth = 256;
 	this.consu.parent = this;
-	this.consu.setTransform(32.05,-259.5);
+	this.consu.setTransform(32.05,-249.5);
 
 	this.hour6 = new cjs.Text("10", "50px 'Arial'", "#666666");
 	this.hour6.name = "hour6";
@@ -442,7 +446,7 @@ if (reversed == null) { reversed = false; }
 	this.hour6.lineHeight = 58;
 	this.hour6.lineWidth = 100;
 	this.hour6.parent = this;
-	this.hour6.setTransform(-472.05,203.65);
+	this.hour6.setTransform(-472.05,207.65);
 
 	this.hour5 = new cjs.Text("10", "50px 'Arial'", "#666666");
 	this.hour5.name = "hour5";
@@ -450,7 +454,7 @@ if (reversed == null) { reversed = false; }
 	this.hour5.lineHeight = 58;
 	this.hour5.lineWidth = 100;
 	this.hour5.parent = this;
-	this.hour5.setTransform(-472.05,115.75);
+	this.hour5.setTransform(-472.05,119.75);
 
 	this.hour4 = new cjs.Text("10", "50px 'Arial'", "#666666");
 	this.hour4.name = "hour4";
@@ -458,7 +462,7 @@ if (reversed == null) { reversed = false; }
 	this.hour4.lineHeight = 58;
 	this.hour4.lineWidth = 100;
 	this.hour4.parent = this;
-	this.hour4.setTransform(-472.05,27.95);
+	this.hour4.setTransform(-472.05,31.95);
 
 	this.hour3 = new cjs.Text("10", "50px 'Arial'", "#666666");
 	this.hour3.name = "hour3";
@@ -466,7 +470,7 @@ if (reversed == null) { reversed = false; }
 	this.hour3.lineHeight = 58;
 	this.hour3.lineWidth = 100;
 	this.hour3.parent = this;
-	this.hour3.setTransform(-472.05,-59.85);
+	this.hour3.setTransform(-472.05,-55.85);
 
 	this.hour2 = new cjs.Text("10", "50px 'Arial'", "#666666");
 	this.hour2.name = "hour2";
@@ -474,7 +478,7 @@ if (reversed == null) { reversed = false; }
 	this.hour2.lineHeight = 58;
 	this.hour2.lineWidth = 100;
 	this.hour2.parent = this;
-	this.hour2.setTransform(-472.05,-147.65);
+	this.hour2.setTransform(-472.05,-143.65);
 
 	this.hour1 = new cjs.Text("10", "50px 'Arial'", "#666666");
 	this.hour1.name = "hour1";
@@ -482,13 +486,152 @@ if (reversed == null) { reversed = false; }
 	this.hour1.lineHeight = 58;
 	this.hour1.lineWidth = 100;
 	this.hour1.parent = this;
-	this.hour1.setTransform(-472.05,-235.45);
+	this.hour1.setTransform(-472.05,-231.45);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.hour1},{t:this.hour2},{t:this.hour3},{t:this.hour4},{t:this.hour5},{t:this.hour6},{t:this.consu},{t:this.cost}]}).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.texts, new cjs.Rectangle(-524,-261.5,1048.1,523), null);
+}).prototype = getMCSymbolPrototype(lib.texts, new cjs.Rectangle(-524,-251.5,1048.1,517), null);
+
+
+(lib.text2 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	this.isSingleFrame = false;
+	// timeline functions:
+	this.frame_0 = function() {
+		if(this.isSingleFrame) {
+			return;
+		}
+		if(this.totalFrames == 1) {
+			this.isSingleFrame = true;
+		}
+		var _this=this,x=5,index=root.btns.getChildIndex(this.parent);
+		_this.txt = document.createElement('input');
+		_this.txt.type='text';
+		_this.txt.style.position = "absolute";
+		_this.txt.style.pointerEvents = "auto";
+		_this.txt.style.fontSize='50px';
+		_this.txt.style.top='0px';
+		_this.txt.style.textAlign='center';
+		_this.txt.style.color='#808080';
+		_this.txt.style.backgroundColor='rgba(0,0,0,0)';
+		_this.txt.style.border='none';
+		_this.txt.value='0';
+		_this.txt.size=x;
+		anim_container.appendChild(_this.txt);
+		_this.text1 = new createjs.DOMElement(_this.txt);
+		_this.addChild(_this.text1);
+		var bound=this.txt.getBoundingClientRect();
+		_this.txt.style.left = (bound.width*-0.5/scale)+"px";
+		_this.txt.style.top = (bound.height*-0.5/scale)+"px";
+		Object.defineProperty(this, 'text', {
+			set(x) { this.txt.value = x; },
+			get(x) { return this.txt.value; },
+			enumerable: true})
+		_this.Hide=function(){
+			_this.txt.style.display='none';
+		}
+		_this.Show=function(){
+			_this.txt.style.display='block';
+		}
+		_this.txt.addEventListener('change',function(){
+			//this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
+			root.btns.keyin(_this);
+		})
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
+
+	// 圖層_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(67,63,63,0)").s().p("ApEETIAAolISJAAIAAIlg");
+	this.shape.setTransform(0.025,0);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.text2, new cjs.Rectangle(-58,-27.5,116.1,55), null);
+
+
+(lib.text1 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	this.isSingleFrame = false;
+	// timeline functions:
+	this.frame_0 = function() {
+		if(this.isSingleFrame) {
+			return;
+		}
+		if(this.totalFrames == 1) {
+			this.isSingleFrame = true;
+		}
+		var _this=this,x=3,index=root.btns.getChildIndex(this.parent);
+		_this.txt = document.createElement('input');
+		_this.txt.type='text';
+		_this.txt.style.position = "absolute";
+		_this.txt.style.pointerEvents = "auto";
+		_this.txt.style.fontSize='50px';
+		_this.txt.style.top='0px';
+		_this.txt.style.textAlign='center';
+		_this.txt.style.color='#F49037';
+		_this.txt.style.backgroundColor='rgba(0,0,0,0)';
+		_this.txt.style.border='none';
+		_this.txt.value='0.5';
+		anim_container.appendChild(_this.txt);
+		_this.txt.size=x;
+		_this.text1 = new createjs.DOMElement(_this.txt);
+		_this.addChild(_this.text1);
+		var bound=this.txt.getBoundingClientRect();
+		_this.txt.style.left = (bound.width*-0.5/scale)+"px";
+		_this.txt.style.top = (bound.height*-0.5/scale)+"px";
+		Object.defineProperty(this, 'text', {
+			set(x) { this.txt.value = x; },
+			get(x) { return this.txt.value; },
+			enumerable: true})
+		_this.Hide=function(){
+			_this.txt.style.display='none';
+		}
+		_this.Show=function(){
+			_this.txt.style.display='block';
+		}
+		_this.txt.addEventListener('change',function(){
+			this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
+		})
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
+
+	// 圖層_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(67,63,63,0)").s().p("ApEETIAAolISJAAIAAIlg");
+	this.shape.setTransform(0.025,0);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.text1, new cjs.Rectangle(-58,-27.5,116.1,55), null);
 
 
 (lib.start_bt = function(mode,startPosition,loop,reversed) {
@@ -851,7 +994,7 @@ if (reversed == null) { reversed = false; }
 	mask.setTransform(258.95,398.15);
 
 	// 圖層_1
-	this.instance = new lib.a_2png複製();
+	this.instance = new lib.a_2();
 	this.instance.setTransform(-860,0);
 
 	var maskedShapeInstanceList = [this.instance];
@@ -886,7 +1029,7 @@ if (reversed == null) { reversed = false; }
 	mask.setTransform(258.95,398.15);
 
 	// 圖層_1
-	this.instance = new lib.a_2png複製();
+	this.instance = new lib.a_2();
 
 	var maskedShapeInstanceList = [this.instance];
 
@@ -1124,7 +1267,11 @@ if (reversed == null) { reversed = false; }
 	this.instance = new lib.set_plus();
 	this.instance.setTransform(-25,-18);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({scaleX:1.1,scaleY:1.1,x:-27,y:-20},0).wait(1).to({scaleX:0.9,scaleY:0.9,x:-22,y:-16},0).wait(1).to({scaleX:1,scaleY:1,x:-25,y:-18},0).wait(1));
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#7B9963").s().p("AkSDGIAAmLIIlAAIAAGLg");
+	this.shape.setTransform(0.5,-0.2);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance,p:{scaleX:1,scaleY:1,x:-25,y:-18}}]}).to({state:[{t:this.instance,p:{scaleX:1.1,scaleY:1.1,x:-27,y:-20}}]},1).to({state:[{t:this.instance,p:{scaleX:0.9,scaleY:0.9,x:-22,y:-16}}]},1).to({state:[{t:this.shape}]},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -1147,376 +1294,16 @@ if (reversed == null) { reversed = false; }
 	this.instance = new lib.set_minus();
 	this.instance.setTransform(-25,-18.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({scaleX:1.1,scaleY:1.1,x:-27,y:-20},0).wait(1).to({scaleX:0.9,scaleY:0.9,x:-22,y:-17},0).wait(1).to({scaleX:1,scaleY:1,x:-25,y:-18.5},0).wait(1));
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#7B9963").s().p("AkSDGIAAmLIIlAAIAAGLg");
+	this.shape.setTransform(0.5,-0.2);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance,p:{scaleX:1,scaleY:1,x:-25,y:-18.5}}]}).to({state:[{t:this.instance,p:{scaleX:1.1,scaleY:1.1,x:-27,y:-20}}]},1).to({state:[{t:this.instance,p:{scaleX:0.9,scaleY:0.9,x:-22,y:-17}}]},1).to({state:[{t:this.shape}]},1).wait(1));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-27,-20,55,40.7);
-
-
-(lib.btn_gen7 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// 圖層_4
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.008)").s().p("EgvjAHCIAAuDMBfGAAAIAAODg");
-	this.shape.setTransform(304.35,45);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// 圖層_3
-	this.num = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 182;
-	this.num.parent = this;
-	this.num.setTransform(489.1,18.8);
-
-	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
-
-	// 圖層_2 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
-	mask.setTransform(45,45);
-
-	// 圖層_1
-	this.instance = new lib.power_7();
-
-	var maskedShapeInstanceList = [this.instance];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,608.7,90);
-
-
-(lib.btn_gen6 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// 圖層_4
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.008)").s().p("EgvjAHCIAAuDMBfGAAAIAAODg");
-	this.shape.setTransform(304.35,45);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// 圖層_3
-	this.num = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 182;
-	this.num.parent = this;
-	this.num.setTransform(489.1,18.8);
-
-	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
-
-	// 圖層_2 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
-	mask.setTransform(45,45);
-
-	// 圖層_1
-	this.instance = new lib.power_6();
-
-	var maskedShapeInstanceList = [this.instance];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,608.7,90);
-
-
-(lib.btn_gen5 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// 圖層_4
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.008)").s().p("EgvjAHCIAAuDMBfGAAAIAAODg");
-	this.shape.setTransform(304.35,45);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// 圖層_3
-	this.num = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 182;
-	this.num.parent = this;
-	this.num.setTransform(489.1,18.8);
-
-	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
-
-	// 圖層_2 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
-	mask.setTransform(45,45);
-
-	// 圖層_1
-	this.instance = new lib.power_5();
-
-	var maskedShapeInstanceList = [this.instance];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,608.7,90);
-
-
-(lib.btn_gen4 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// 圖層_4
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.008)").s().p("EgvjAHCIAAuDMBfGAAAIAAODg");
-	this.shape.setTransform(304.35,45);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// 圖層_3
-	this.num = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 182;
-	this.num.parent = this;
-	this.num.setTransform(489.1,18.8);
-
-	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
-
-	// 圖層_2 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
-	mask.setTransform(45,45);
-
-	// 圖層_1
-	this.instance = new lib.power_4();
-
-	var maskedShapeInstanceList = [this.instance];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,608.7,90);
-
-
-(lib.btn_gen3 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// 圖層_4
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.008)").s().p("EgvjAHCIAAuDMBfGAAAIAAODg");
-	this.shape.setTransform(304.35,45);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// 圖層_3
-	this.num = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 182;
-	this.num.parent = this;
-	this.num.setTransform(489.1,18.8);
-
-	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
-
-	// 圖層_2 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
-	mask.setTransform(45,45);
-
-	// 圖層_1
-	this.instance = new lib.power_3();
-
-	var maskedShapeInstanceList = [this.instance];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,608.7,90);
-
-
-(lib.btn_gen2 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// 圖層_4
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.008)").s().p("EgvjAHCIAAuDMBfGAAAIAAODg");
-	this.shape.setTransform(304.35,45);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// 圖層_3
-	this.num = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 182;
-	this.num.parent = this;
-	this.num.setTransform(489.1,18.8);
-
-	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
-
-	// 圖層_2 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
-	mask.setTransform(45,45);
-
-	// 圖層_1
-	this.instance = new lib.power_2();
-
-	var maskedShapeInstanceList = [this.instance];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,608.7,90);
-
-
-(lib.btn_gen1 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// 圖層_4
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.008)").s().p("EgvjAHCIAAuDMBfGAAAIAAODg");
-	this.shape.setTransform(304.35,45);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// 圖層_3
-	this.num = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 182;
-	this.num.parent = this;
-	this.num.setTransform(489.1,18.8);
-
-	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
-
-	// 圖層_2 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
-	mask.setTransform(45,45);
-
-	// 圖層_1
-	this.instance = new lib.power_1();
-
-	var maskedShapeInstanceList = [this.instance];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,608.7,90);
 
 
 (lib.btn_close = function(mode,startPosition,loop,reversed) {
@@ -1540,6 +1327,48 @@ if (reversed == null) { reversed = false; }
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-22,-22,44,44);
+
+
+(lib.BT_lock3 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_1
+	this.instance = new lib.bt_ok_locked();
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.BT_lock3, new cjs.Rectangle(0,0,330,140), null);
+
+
+(lib.BT_lock1 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_1
+	this.instance = new lib.bt_ok_locked();
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.BT_lock1, new cjs.Rectangle(0,0,330,140), null);
 
 
 (lib.end_mc3 = function(mode,startPosition,loop,reversed) {
@@ -1678,7 +1507,9 @@ if (reversed == null) { reversed = false; }
 			var cost=0,co2=0,income;
 			for (var i in root.sets2) {
 				cost+=root.sets2[i]*root.costs2[i];
+				log(cost, root.sets2[i], root.costs2[i]);
 				co2+=root.sets2[i]*root.co2[i];
+				log(co2, root.sets2[i], root.co2[i]);
 			}
 		
 			_this.tip1.gotoAndStop(0);
@@ -1699,6 +1530,7 @@ if (reversed == null) { reversed = false; }
 			}
 			_this.num1.text = Math.round(cost);
 			_this.num2.text = Math.round(co2);
+			_this.num4.text = Math.round2(co2/10000,1);
 			
 			_this.income.gotoAndStop(cost<root.cost?1:0);
 			_this.num3.text = Math.round(Math.abs(root.cost-cost));
@@ -1728,184 +1560,43 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.trees},{t:this.income},{t:this.tip1},{t:this.tip2}]}).wait(1));
 
 	// 圖層_3
-	this.num3 = new cjs.Text("", "50px 'Arial'");
+	this.num4 = new cjs.Text("", "50px 'Arial'", "#7B9963");
+	this.num4.name = "num4";
+	this.num4.textAlign = "center";
+	this.num4.lineHeight = 58;
+	this.num4.lineWidth = 152;
+	this.num4.parent = this;
+	this.num4.setTransform(1450.35,168.1);
+
+	this.num3 = new cjs.Text("", "50px 'Arial'", "#7B9963");
 	this.num3.name = "num3";
 	this.num3.textAlign = "center";
 	this.num3.lineHeight = 58;
 	this.num3.lineWidth = 332;
 	this.num3.parent = this;
-	this.num3.setTransform(1385.35,794.75);
+	this.num3.setTransform(1385.35,802.75);
 
-	this.num2 = new cjs.Text("", "50px 'Arial'");
+	this.num2 = new cjs.Text("", "50px 'Arial'", "#7B9963");
 	this.num2.name = "num2";
 	this.num2.textAlign = "center";
 	this.num2.lineHeight = 58;
 	this.num2.lineWidth = 260;
 	this.num2.parent = this;
-	this.num2.setTransform(514.1,743.9);
+	this.num2.setTransform(514.1,747.9);
 
-	this.num1 = new cjs.Text("", "50px 'Arial'");
+	this.num1 = new cjs.Text("", "50px 'Arial'", "#7B9963");
 	this.num1.name = "num1";
 	this.num1.textAlign = "center";
 	this.num1.lineHeight = 58;
 	this.num1.lineWidth = 298;
 	this.num1.parent = this;
-	this.num1.setTransform(533.15,324.9);
+	this.num1.setTransform(533.15,328.9);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.num1},{t:this.num2},{t:this.num3}]}).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = getMCSymbolPrototype(lib.end, new cjs.Rectangle(382,247.5,1344.5,655.5), null);
-
-
-(lib.btns2 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	this.isSingleFrame = false;
-	// timeline functions:
-	this.frame_0 = function() {
-		if(this.isSingleFrame) {
-			return;
-		}
-		if(this.totalFrames == 1) {
-			this.isSingleFrame = true;
-		}
-		var _this=this,mc,index,timeout,str='',omW;
-		var shape = new createjs.Shape();
-		this.Pie.addChild(shape)
-		init();
-		this.on("added", function (evt) {
-		  init();
-		});
-		this.on("removed", function (evt) {
-			_this.removeEventListener('click',Click);
-			window.removeEventListener('keydown', keyin);
-		});
-		function init(){
-			log('btns2.init()')
-			root.btns=_this;
-			root.BT_next3.visible=false;
-			root.sets2 = [0,0,0,0,0,0,0];
-			_this.mW.text = root.job;
-			for (var i=0; i<7; i++){
-				_this.children[i].gotoAndStop(0);
-				_this.children[i].num.text = 0;
-				_this.children[i].num.color = '#808080';
-			}
-			_this.addEventListener('click',Click);
-			window.addEventListener('keydown', keyin);
-		}
-		function Click(e){
-			playSound('click');
-			mc = e.target.parent;
-			index=_this.getChildIndex(mc);
-			str='';
-			omW=0;
-			for (var i in root.sets2) {
-				_this.children[i].num.color='#808080';
-				if (i!=index) omW+=root.sets2[i];
-			}
-			update();
-		}
-		function keyin(e) {
-			if (mc==null) return;
-			const key = e.key;
-			switch(key){
-				case '0':
-				case '9':
-				case '8':
-				case '7':
-				case '6':
-				case '5':
-				case '4':
-				case '3':
-				case '2':
-				case '1':
-					str+=key;
-					break;
-				case '.':
-					if (str.length==0) str='0';
-					str+=key;
-					break;
-				case 'Backspace':
-					str=str.substr(0,str.length-1);
-					break;
-				default:
-					return;
-			}
-			log(number(str??0),root.job-omW);
-			mc.num.text = root.sets2[index] = Math.round2(Math.max(Math.min(number(str??0),root.job-omW),0),1);
-			_this.mW.text = Math.round2(root.job-omW-root.sets2[index],1);
-			mc.gotoAndStop(mc.num.text>0?1:0);
-			update();
-			drawPie(root.sets2, shape, 260, ['#f38181','#a2c784','#bc8e75','#ffd573','#5d8ec9','#58b8b4','#f79d44'])
-		}
-		function cooldown(){
-			mc.num.color = '#808080';
-			str='';
-		}
-		function update(){
-			mc.num.color = '#ff8080';
-			if (timeout) clearTimeout(timeout);
-			timeout = setTimeout(cooldown, 3000);
-			root.BT_next3.visible = (_this.mW.text=='0');
-		}
-	}
-
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
-
-	// 圖層_2
-	this.Pie = new lib.DrawC();
-	this.Pie.name = "Pie";
-	this.Pie.setTransform(1400.25,626.1);
-
-	this.timeline.addTween(cjs.Tween.get(this.Pie).wait(1));
-
-	// 圖層_1
-	this.mW = new cjs.Text("", "50px 'Arial'", "#E05858");
-	this.mW.name = "mW";
-	this.mW.textAlign = "center";
-	this.mW.lineHeight = 58;
-	this.mW.lineWidth = 194;
-	this.mW.parent = this;
-	this.mW.setTransform(1085.2,126.8);
-
-	this.instance = new lib.btn_gen7();
-	this.instance.setTransform(320,906,1,1,0,0,0,90,45);
-
-	this.instance_1 = new lib.btn_gen6();
-	this.instance_1.setTransform(320,811.6,1,1,0,0,0,90,45);
-
-	this.instance_2 = new lib.btn_gen5();
-	this.instance_2.setTransform(320,717.3,1,1,0,0,0,90,45);
-
-	this.instance_3 = new lib.btn_gen4();
-	this.instance_3.setTransform(320,623,1,1,0,0,0,90,45);
-
-	this.instance_4 = new lib.btn_gen3();
-	this.instance_4.setTransform(320,486,1,1,0,0,0,90,45);
-
-	this.instance_5 = new lib.btn_gen2();
-	this.instance_5.setTransform(320,393,1,1,0,0,0,90,45);
-
-	this.instance_6 = new lib.btn_gen1();
-	this.instance_6.setTransform(320,300,1,1,0,0,0,90,45);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance},{t:this.mW}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.num1},{t:this.num2},{t:this.num3},{t:this.num4}]}).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.btns2, new cjs.Rectangle(230,124.8,954.3,826.2), null);
+}).prototype = getMCSymbolPrototype(lib.end, new cjs.Rectangle(382,166.1,1344.5,736.9), null);
 
 
 (lib.btns1_6 = function(mode,startPosition,loop,reversed) {
@@ -1925,13 +1616,9 @@ if (reversed == null) { reversed = false; }
 	this.next.setTransform(200.25,0,1,1,0,0,0,300,110);
 	new cjs.ButtonHelper(this.next, 0, 1, 2, false, new lib.btns1_6_1(), 3);
 
-	this.num = new cjs.Text("23.5", "50px 'Arial'", "#F49037");
+	this.num = new lib.text1();
 	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 98;
-	this.num.parent = this;
-	this.num.setTransform(192.05,-28.15);
+	this.num.setTransform(191.05,-4.65);
 
 	this.minus = new lib.btn_minus();
 	this.minus.name = "minus";
@@ -1951,7 +1638,7 @@ if (reversed == null) { reversed = false; }
 	this.prev.setTransform(200.25,0,1,1,0,0,0,300,110);
 	new cjs.ButtonHelper(this.prev, 0, 1, 2, false, new lib.btns1_6_2(), 3);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.next}]}).to({state:[{t:this.prev},{t:this.instance},{t:this.plus},{t:this.minus},{t:this.num}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.next}]}).to({state:[{t:this.prev},{t:this.instance},{t:this.plus},{t:this.minus},{t:this.num,p:{y:-4.65}}]},1).to({state:[{t:this.prev},{t:this.instance},{t:this.plus},{t:this.minus},{t:this.num,p:{y:-4.15}}]},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -1976,13 +1663,9 @@ if (reversed == null) { reversed = false; }
 	this.next.setTransform(368.95,0,1,1,0,0,0,555,130);
 	new cjs.ButtonHelper(this.next, 0, 1, 2, false, new lib.btns1_5_1(), 3);
 
-	this.num = new cjs.Text("23.5", "50px 'Arial'", "#F49037");
+	this.num = new lib.text1();
 	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 98;
-	this.num.parent = this;
-	this.num.setTransform(-45,224.95);
+	this.num.setTransform(-47.95,248.3);
 
 	this.minus = new lib.btn_minus();
 	this.minus.name = "minus";
@@ -2027,13 +1710,9 @@ if (reversed == null) { reversed = false; }
 	this.next.setTransform(673.95,42.95,1,1,0,0,0,810,315);
 	new cjs.ButtonHelper(this.next, 0, 1, 2, false, new lib.btns1_4_1(), 3);
 
-	this.num = new cjs.Text("23.5", "50px 'Arial'", "#F49037");
+	this.num = new lib.text1();
 	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 98;
-	this.num.parent = this;
-	this.num.setTransform(-159.05,-364.25);
+	this.num.setTransform(-161.05,-340.6);
 
 	this.minus = new lib.btn_minus();
 	this.minus.name = "minus";
@@ -2078,13 +1757,9 @@ if (reversed == null) { reversed = false; }
 	this.next.setTransform(178.95,1,1,1,0,0,0,270,125);
 	new cjs.ButtonHelper(this.next, 0, 1, 2);
 
-	this.num = new cjs.Text("23.5", "50px 'Arial'", "#F49037");
+	this.num = new lib.text1();
 	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 98;
-	this.num.parent = this;
-	this.num.setTransform(-352.05,-60.2);
+	this.num.setTransform(-351.05,-38.05);
 
 	this.minus = new lib.btn_minus();
 	this.minus.name = "minus";
@@ -2129,13 +1804,9 @@ if (reversed == null) { reversed = false; }
 	this.next.setTransform(386.05,3.9,1,1,0,0,0,645,405);
 	new cjs.ButtonHelper(this.next, 0, 1, 2, false, new lib.btns1_2_1(), 3);
 
-	this.num = new cjs.Text("23.5", "50px 'Arial'", "#F49037");
+	this.num = new lib.text1();
 	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 98;
-	this.num.parent = this;
-	this.num.setTransform(96,277.75);
+	this.num.setTransform(95.05,301.5);
 
 	this.minus = new lib.btn_minus();
 	this.minus.name = "minus";
@@ -2180,13 +1851,9 @@ if (reversed == null) { reversed = false; }
 	this.next.setTransform(440.95,2,1,1,0,0,0,660,80);
 	new cjs.ButtonHelper(this.next, 0, 1, 2, false, new lib.btns1_1_1(), 3);
 
-	this.num = new cjs.Text("23.5", "50px 'Arial'", "#F49037");
+	this.num = new lib.text1();
 	this.num.name = "num";
-	this.num.textAlign = "center";
-	this.num.lineHeight = 58;
-	this.num.lineWidth = 98;
-	this.num.parent = this;
-	this.num.setTransform(-94.05,159.85);
+	this.num.setTransform(-96,183);
 
 	this.minus = new lib.btn_minus();
 	this.minus.name = "minus";
@@ -2235,7 +1902,20 @@ if (reversed == null) { reversed = false; }
 			this.isSingleFrame = true;
 		}
 		var _this=this,mc,index,hour,str='',timeout;
-		root.btns=_this;
+		for (var i in _this.children) _this.children[i].gotoAndStop(0);
+		this.Hide = function (){
+			for (var i in _this.children){
+				if (!_this.children[i].num.txt) continue;
+				_this.children[i].num.Hide()
+			}
+		}
+		_this.Reset = function(){
+			for (var i in root.sets){
+				if (root.sets[i]==0) continue;
+				_this.children[i].num.Hide();
+				_this.children[i].gotoAndStop(0);
+			}
+		}
 		this.on("added", function (evt) {
 		  init();
 		});
@@ -2247,77 +1927,54 @@ if (reversed == null) { reversed = false; }
 		init();
 		function init(){
 			log('btns1.init()')
-			root.BT_next1.visible = !!root.sets.filter(n=> n>0).length;
+			root.btns=_this;
+			root.BT_lock1.visible = !root.sets.filter(n=> n>0).length;
 			for (var i in _this.children){
-				_this.children[i].gotoAndStop(root.sets[i]?1:0);
+				if (root.sets[i]==0) continue;
+				_this.children[i].gotoAndStop(1);
+				//_this.children[i].num.Show();
 			}
 			_this.addEventListener('click',Click);
-			window.addEventListener('keydown', keyin);
+			window.addEventListener('keyup', keyin);
 		}
 		
 		function Click(e){
 			playSound('click');
 			mc = e.target.parent;
 			index=_this.getChildIndex(mc);
-			hour = root['hours'][index];
 			str='';
-			for (var i in root.sets) _this.children[i].num.color='#f49037';
-			update()
 			switch(e.target.name) {
 				case 'next':
 					mc.gotoAndStop(1);
-					root.sets[index] = mc.num.text = hour;
-					root.BT_next1.visible=true;
+					root.sets[index] = hour = root['hours'][index];
+					if (mc.num.txt){
+						mc.num.text = root.sets[index];
+						mc.num.Show();
+					}
+					root.BT_lock1.visible=!true;
 					break;
 				case 'prev':
 					mc.gotoAndStop(0);
 					root.sets[index] = 0;
-					root.BT_next1.visible = !!root.sets.filter(n=> n>0).length;
+					root.BT_lock1.visible = !root.sets.filter(n=> n>0).length;
+					mc.num.Hide();
 					mc=null;
 					break;
 				case 'plus':
+					hour = number(mc.num.text);
 					root.sets[index] = mc.num.text = root.hours[index] = Math.min(hour+=0.5, 24);
 					break;
 				case 'minus':
+					hour = number(mc.num.text);
 					root.sets[index] = mc.num.text = root.hours[index] = Math.max(hour-=0.5, .5);
 					break;
 			}
 		}
 		function keyin(e) {
 			if (mc==null) return;
-			const key = e.key;
-			switch(key){
-				case '0':
-				case '9':
-				case '8':
-				case '7':
-				case '6':
-				case '5':
-				case '4':
-				case '3':
-				case '2':
-				case '1':
-				case '.':
-					str+=key;
-					break;
-				case 'Backspace':
-					str=str.substr(0,str.length-1);
-					break;
-				default:
-					return;
-			}
-			update();
-			mc.num.text = root.sets[index] = root.hours[index] = Math.round2(Math.max(Math.min(number(str??0.5),24),0.5),1);
-		
-		}
-		function cooldown(){
-			mc.num.color = '#f49037';
-			str='';
-		}
-		function update(){
-			mc.num.color = '#f33';
-			if (timeout) clearTimeout(timeout);
-			timeout = setTimeout(cooldown, 3000);
+			mc.num.text = mc.num.text.replace(/[^0-9.]/g, "");	
+			hour = number(mc.num.text);
+			root.sets[index] = root.hours[index] =  Math.min(Math.max(hour, .5), 24);
 		}
 	}
 
@@ -2350,6 +2007,409 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.btns1, new cjs.Rectangle(-112.1,-47,3387.1,1056.9), null);
 
 
+(lib.btn_gen7 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_5
+	this.num = new lib.text2();
+	this.num.name = "num";
+	this.num.setTransform(489.1,44.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
+
+	// 圖層_2 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
+	mask.setTransform(45,45);
+
+	// 圖層_1
+	this.instance = new lib.power_7();
+
+	var maskedShapeInstanceList = [this.instance];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,547.2,90);
+
+
+(lib.btn_gen6 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_5
+	this.num = new lib.text2();
+	this.num.name = "num";
+	this.num.setTransform(489.1,44.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
+
+	// 圖層_2 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
+	mask.setTransform(45,45);
+
+	// 圖層_1
+	this.instance = new lib.power_6();
+
+	var maskedShapeInstanceList = [this.instance];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,547.2,90);
+
+
+(lib.btn_gen5 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_5
+	this.num = new lib.text2();
+	this.num.name = "num";
+	this.num.setTransform(489.1,45.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
+
+	// 圖層_2 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
+	mask.setTransform(45,45);
+
+	// 圖層_1
+	this.instance = new lib.power_5();
+
+	var maskedShapeInstanceList = [this.instance];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,547.2,90);
+
+
+(lib.btn_gen4 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_5
+	this.num = new lib.text2();
+	this.num.name = "num";
+	this.num.setTransform(489.1,45.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
+
+	// 圖層_2 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
+	mask.setTransform(45,45);
+
+	// 圖層_1
+	this.instance = new lib.power_4();
+
+	var maskedShapeInstanceList = [this.instance];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,547.2,90);
+
+
+(lib.btn_gen3 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_5
+	this.num = new lib.text2();
+	this.num.name = "num";
+	this.num.setTransform(489.1,45.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
+
+	// 圖層_2 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
+	mask.setTransform(45,45);
+
+	// 圖層_1
+	this.instance = new lib.power_3();
+
+	var maskedShapeInstanceList = [this.instance];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,547.2,90);
+
+
+(lib.btn_gen2 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_5
+	this.num = new lib.text2();
+	this.num.name = "num";
+	this.num.setTransform(489.1,44.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
+
+	// 圖層_2 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
+	mask.setTransform(45,45);
+
+	// 圖層_1
+	this.instance = new lib.power_2();
+
+	var maskedShapeInstanceList = [this.instance];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,547.2,90);
+
+
+(lib.btn_gen1 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// 圖層_3
+	this.num = new lib.text2();
+	this.num.name = "num";
+	this.num.setTransform(489.1,43.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.num).wait(2));
+
+	// 圖層_2 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	mask.graphics.p("AnBHCIAAuDIODAAIAAODg");
+	mask.setTransform(45,45);
+
+	// 圖層_1
+	this.instance = new lib.power_1();
+
+	var maskedShapeInstanceList = [this.instance];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({x:-90},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,547.2,90);
+
+
+(lib.btns2 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	this.isSingleFrame = false;
+	// timeline functions:
+	this.frame_0 = function() {
+		if(this.isSingleFrame) {
+			return;
+		}
+		if(this.totalFrames == 1) {
+			this.isSingleFrame = true;
+		}
+		var _this=this,timeout,str='',omW,colors=['#f38181','#a2c784','#bc8e75','#ffd573','#5d8ec9','#58b8b4','#f79d44'];
+		this.shape = new createjs.Shape();
+		this.Pie.addChild(this.shape)
+		this.keyin=keyin;
+		for (var i=0; i<7; i++){
+			_this.children[i].gotoAndStop(0);
+			_this.children[i].num.text = 0;
+			_this.children[i].num.i = i;
+		}
+		init();
+		this.on("added", function (evt) {
+			init();
+			for (var i=0; i<7; i++){
+				_this.children[i].gotoAndStop(0);
+				_this.children[i].num.text = 0;
+				_this.children[i].num.Show();
+			}
+		});
+		this.on("removed", function (evt) {
+			for (var i=0; i<7; i++){
+				_this.children[i].num.Hide()
+			}
+		});
+		function init(){
+			log('btns2.init()')
+			root.btns=_this;
+			root.BT_lock3.visible=true;
+			root.sets2 = [0,0,0,0,0,0,0];
+			_this.mW.text = root.job;
+			_this.shape.graphics.clear();
+			for (var i=0; i<7; i++){
+				_this.children[i].gotoAndStop(0);
+			}
+		}
+		function keyin(mc) {
+			omW=0;
+			for (var i in root.sets2) {
+				if (i!=mc.i) omW+=root.sets2[i];
+			}
+			log(root.job-omW,mc.text, mc.i);
+			mc.text = mc.text.replace(/[^0-9.]/g, "");
+			mc.text = root.sets2[mc.i] = Math.round2(Math.max(Math.min(number(mc.text??0),root.job-omW),0),1);
+			_this.mW.text = Math.round2(root.job-omW-root.sets2[mc.i],1);
+			mc.gotoAndStop(mc.text>0?1:0);
+			root.BT_lock3.visible = !(_this.mW.text=='0');
+			drawPie(root.sets2, _this.shape, 260, colors);
+		}
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
+
+	// 圖層_2
+	this.Pie = new lib.DrawC();
+	this.Pie.name = "Pie";
+	this.Pie.setTransform(1400.25,626.1);
+
+	this.timeline.addTween(cjs.Tween.get(this.Pie).wait(1));
+
+	// 圖層_1
+	this.mW = new cjs.Text("", "50px 'Arial'", "#E05858");
+	this.mW.name = "mW";
+	this.mW.textAlign = "center";
+	this.mW.lineHeight = 58;
+	this.mW.lineWidth = 194;
+	this.mW.parent = this;
+	this.mW.setTransform(1085.2,132.8);
+
+	this.instance = new lib.btn_gen7();
+	this.instance.setTransform(320,906,1,1,0,0,0,90,45);
+
+	this.instance_1 = new lib.btn_gen6();
+	this.instance_1.setTransform(320,811.6,1,1,0,0,0,90,45);
+
+	this.instance_2 = new lib.btn_gen5();
+	this.instance_2.setTransform(320,717.3,1,1,0,0,0,90,45);
+
+	this.instance_3 = new lib.btn_gen4();
+	this.instance_3.setTransform(320,623,1,1,0,0,0,90,45);
+
+	this.instance_4 = new lib.btn_gen3();
+	this.instance_4.setTransform(320,486,1,1,0,0,0,90,45);
+
+	this.instance_5 = new lib.btn_gen2();
+	this.instance_5.setTransform(320,393,1,1,0,0,0,90,45);
+
+	this.instance_6 = new lib.btn_gen1();
+	this.instance_6.setTransform(320,300,1,1,0,0,0,90,45);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance},{t:this.mW}]}).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.btns2, new cjs.Rectangle(230,130.8,954.3,820.2), null);
+
+
 // stage content:
 (lib.index = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
@@ -2362,7 +2422,7 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 
-	this.actionFrames = [0];
+	this.actionFrames = [0,1];
 	// timeline functions:
 	this.frame_0 = function() {
 		var _this=this;
@@ -2373,35 +2433,37 @@ if (reversed == null) { reversed = false; }
 		this.co2=[820,490,800,12,24,11,48];
 		this.hours=[0.5,0.5,0.5,0.5,0.5,0.5];
 		this.sets=[0,0,0,0,0,0];
+		this.sets2=[0,0,0,0,0,0,0];
 		this.stop();
 		this.addEventListener('click',Click);
-		bgm=playSound('bgm',-1);
+		if ( !_this.bgm ) _this.bgm=playSound('bgm',-1);
 		function Click(e){
 			log(e.target.name);
+			document.activeElement?.blur();
 			switch (e.target.name){
 				case 'BT_re':
 					playSound('click');
-					_this.gotoAndStop(0);
+					_this.gotoAndStop(1);
 					break;
 				case 'BT_start':
 				case 'BT_prev1':
 					playSound('click');
-					if (!bgm.playing) bgm.play();
-					_this.gotoAndStop(1);
+					if (_this.bgm.playState!='playSucceeded') _this.bgm.play();
+					_this.gotoAndStop(2);
 					break;
 				case 'BT_next1':
 					playSound('click');
-					_this.gotoAndStop(2);
+					_this.btns.Hide();
+					_this.gotoAndStop(3);
 					break;
 				case 'BT_next2':
 					playSound('click');
-					_this.gotoAndStop(3);
+					root.btns.Reset();
+					_this.gotoAndStop(4);
 					break;
 				case 'BT_next3':
 					playSound('click');
-					_this.hours=[0.5,0.5,0.5,0.5,0.5,0.5];
-					_this.sets=[0,0,0,0,0,0];
-					_this.gotoAndStop(4);
+					_this.gotoAndStop(5);
 					break;
 				case 'BT_close':
 					playSound('click');
@@ -2414,9 +2476,14 @@ if (reversed == null) { reversed = false; }
 			}
 		}
 	}
+	this.frame_1 = function() {
+		root.hours=[0.5,0.5,0.5,0.5,0.5,0.5];
+		root.sets=[0,0,0,0,0,0];
+		root.sets2=[0,0,0,0,0,0,0];
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(5));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(5));
 
 	// 圖層_1
 	this.BT_start = new lib.start_bt();
@@ -2436,20 +2503,21 @@ if (reversed == null) { reversed = false; }
 	this.instance_2 = new lib.end();
 	this.instance_2.setTransform(-8,1.5,1,1,0,0,0,-8,1.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.BT_start}]}).to({state:[{t:this.btns1}]},1).to({state:[{t:this.instance}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.BT_start}]}).to({state:[{t:this.btns1}]},2).to({state:[{t:this.instance}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).wait(1));
 
 	// BG
 	this.instance_3 = new lib.start_bg();
+
+	this.BT_lock1 = new lib.BT_lock1();
+	this.BT_lock1.name = "BT_lock1";
+	this.BT_lock1.setTransform(1690,960,1,1,0,0,0,165,70);
 
 	this.BT_next1 = new lib.btn1();
 	this.BT_next1.name = "BT_next1";
 	this.BT_next1.setTransform(1690,960);
 	new cjs.ButtonHelper(this.BT_next1, 0, 1, 2, false, new lib.btn1(), 3);
 
-	this.instance_4 = new lib.bt_ok_locked();
-	this.instance_4.setTransform(1525,890);
-
-	this.instance_5 = new lib.main_bg();
+	this.instance_4 = new lib.main_bg();
 
 	this.BT_prev1 = new lib.btn2();
 	this.BT_prev1.name = "BT_prev1";
@@ -2461,23 +2529,27 @@ if (reversed == null) { reversed = false; }
 	this.BT_next2.setTransform(1630,873.95);
 	new cjs.ButtonHelper(this.BT_next2, 0, 1, 2, false, new lib.btn3(), 3);
 
-	this.instance_6 = new lib.result_bg();
+	this.instance_5 = new lib.result_bg();
+
+	this.BT_lock3 = new lib.BT_lock3();
+	this.BT_lock3.name = "BT_lock3";
+	this.BT_lock3.setTransform(1718,988,1,1,0,0,0,165,70);
 
 	this.BT_next3 = new lib.btn1();
 	this.BT_next3.name = "BT_next3";
 	this.BT_next3.setTransform(1718,988);
 	new cjs.ButtonHelper(this.BT_next3, 0, 1, 2, false, new lib.btn1(), 3);
 
-	this.instance_7 = new lib.power_bg();
+	this.instance_6 = new lib.power_bg();
 
 	this.BT_re = new lib.btn4();
 	this.BT_re.name = "BT_re";
 	this.BT_re.setTransform(1392.4,964.25);
 	new cjs.ButtonHelper(this.BT_re, 0, 1, 2, false, new lib.btn4(), 3);
 
-	this.instance_8 = new lib.end_bg();
+	this.instance_7 = new lib.end_bg();
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3}]}).to({state:[{t:this.instance_5},{t:this.instance_4,p:{x:1525,y:890}},{t:this.BT_next1}]},1).to({state:[{t:this.instance_6},{t:this.BT_next2},{t:this.BT_prev1}]},1).to({state:[{t:this.instance_7},{t:this.instance_4,p:{x:1553,y:918}},{t:this.BT_next3}]},1).to({state:[{t:this.instance_8},{t:this.BT_re}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3}]}).to({state:[{t:this.instance_4},{t:this.BT_next1},{t:this.BT_lock1}]},2).to({state:[{t:this.instance_5},{t:this.BT_next2},{t:this.BT_prev1}]},1).to({state:[{t:this.instance_6},{t:this.BT_next3},{t:this.BT_lock3}]},1).to({state:[{t:this.instance_7},{t:this.BT_re}]},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -2492,9 +2564,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1767844538866", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1767844538899", id:"bgm"},
-		{src:"sounds/click.mp3?1767844538899", id:"click"}
+		{src:"images/index_atlas_1.png?1768211249577", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1768211249609", id:"bgm"},
+		{src:"sounds/click.mp3?1768211249609", id:"click"}
 	],
 	preloads: []
 };
