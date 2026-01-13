@@ -2366,7 +2366,7 @@ if (reversed == null) { reversed = false; }
 			mc.text = mc.text.replace(/[^0-9.]/g, "");
 			root.sets2[mc.i] = Math.round2(Math.max(Math.min(number(mc.text)||0,root.job-omW),0),1);
 			_this.mW.text = Math.round2(root.job-omW-root.sets2[mc.i],1);
-			mc.parent.gotoAndStop(mc.text>0?1:0);
+			mc.parent.gotoAndStop(root.sets2[mc.i]>0?1:0);
 			root.BT_lock3.visible = !(_this.mW.text=='0');
 			drawPie(root.sets2, _this.shape, 260, colors);
 		}
@@ -2573,9 +2573,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1768283942823", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1768283942856", id:"bgm"},
-		{src:"sounds/click.mp3?1768283942856", id:"click"}
+		{src:"images/index_atlas_1.png?1768284797077", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1768284797118", id:"bgm"},
+		{src:"sounds/click.mp3?1768284797118", id:"click"}
 	],
 	preloads: []
 };
