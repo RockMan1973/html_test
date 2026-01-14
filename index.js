@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_1", frames: [[0,3508,1320,160],[1922,2164,1290,810],[3214,2688,540,250],[1922,2976,1620,630],[0,3246,1110,260],[1112,3246,600,220],[2308,3608,330,140],[2640,3608,330,140],[2972,3608,330,140],[3544,3112,365,192],[3304,3650,330,140],[3636,3650,330,140],[0,0,1920,1080],[3756,2870,320,50],[0,3732,320,50],[4026,77,40,40],[3844,644,110,50],[3956,644,110,50],[3214,2456,600,230],[3214,2164,600,290],[0,3670,675,60],[677,3670,675,60],[3544,2940,550,170],[1922,0,1920,1080],[3844,0,180,90],[3844,92,180,90],[3844,184,180,90],[3844,276,180,90],[3844,368,180,90],[3844,460,180,90],[3844,552,180,90],[0,1082,1920,1080],[1922,1082,1920,1080],[3756,2688,320,180],[3544,3488,330,160],[1644,3608,330,160],[3544,3306,320,180],[1322,3468,320,180],[1976,3608,330,160],[4026,0,50,37],[4026,39,50,36],[0,2164,1920,1080]]}
+		{name:"index_atlas_1", frames: [[1322,3608,692,120],[0,3508,1320,160],[1922,2164,1290,810],[3214,2688,540,250],[1922,2976,1620,630],[0,3246,1110,260],[1112,3246,600,220],[3012,3608,330,140],[0,3670,330,140],[332,3670,330,140],[3544,3112,365,192],[664,3670,330,140],[3344,3670,330,140],[0,0,1920,1080],[3756,2870,320,50],[1322,3468,320,50],[4026,77,40,40],[3844,644,110,50],[3956,644,110,50],[3214,2456,600,230],[3214,2164,600,290],[996,3730,675,60],[1673,3770,675,60],[3544,2940,550,170],[1922,0,1920,1080],[3844,0,180,90],[3844,92,180,90],[3844,184,180,90],[3844,276,180,90],[3844,368,180,90],[3844,460,180,90],[3844,552,180,90],[0,1082,1920,1080],[1922,1082,1920,1080],[3756,2688,320,180],[2016,3608,330,160],[2348,3608,330,160],[3544,3306,320,180],[3544,3488,320,180],[2680,3608,330,160],[4026,0,50,37],[4026,39,50,36],[0,2164,1920,1080]]}
 ];
 
 
@@ -27,296 +27,303 @@ lib.ssMetadata = [
 
 
 
-(lib.a_1 = function() {
+(lib.CachedBmp_1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_2 = function() {
+(lib.a_1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_3 = function() {
+(lib.a_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_4 = function() {
+(lib.a_3 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_5 = function() {
+(lib.a_4 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_6 = function() {
+(lib.a_5 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_back = function() {
+(lib.a_6 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_ok = function() {
+(lib.bt_back = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_ok_locked = function() {
+(lib.bt_ok = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_power = function() {
+(lib.bt_ok_locked = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_restart = function() {
+(lib.bt_power = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_start = function() {
+(lib.bt_restart = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(11);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_bg = function() {
+(lib.bt_start = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_bt1 = function() {
+(lib.end_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(13);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_bt2 = function() {
+(lib.end_bt1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(14);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_close = function() {
+(lib.end_bt2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_loss = function() {
+(lib.end_close = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_surplus = function() {
+(lib.end_loss = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_table1 = function() {
+(lib.end_surplus = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(18);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_table2 = function() {
+(lib.end_table1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(19);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_tree = function() {
+(lib.end_table2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(20);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_tree_bg = function() {
+(lib.end_tree = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(21);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_tree_max = function() {
+(lib.end_tree_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(22);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.main_bg = function() {
+(lib.end_tree_max = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(23);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_1 = function() {
+(lib.main_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(24);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_2 = function() {
+(lib.power_1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(25);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_3 = function() {
+(lib.power_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(26);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_4 = function() {
+(lib.power_3 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(27);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_5 = function() {
+(lib.power_4 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(28);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_6 = function() {
+(lib.power_5 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(29);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_7 = function() {
+(lib.power_6 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(30);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_bg = function() {
+(lib.power_7 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(31);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.result_bg = function() {
+(lib.power_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(32);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_1 = function() {
+(lib.result_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(33);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_2 = function() {
+(lib.set_1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(34);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_3 = function() {
+(lib.set_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(35);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_4 = function() {
+(lib.set_3 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(36);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_5 = function() {
+(lib.set_4 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(37);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_6 = function() {
+(lib.set_5 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(38);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_minus = function() {
+(lib.set_6 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(39);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_plus = function() {
+(lib.set_minus = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(40);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.start_bg = function() {
+(lib.set_plus = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(41);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.start_bg = function() {
+	this.initialize(ss["index_atlas_1"]);
+	this.gotoAndStop(42);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
@@ -410,8 +417,8 @@ if (reversed == null) { reversed = false; }
 			}
 			root.job= Math.round2(consu*60/1000,1);
 			for ( i=0; root.levels[i]<root.job; i++) {
-				cost += root.levels[i]*root.costs[i];
-				log(cost, root.levels[i], root.costs[i])
+				cost += (root.levels[i]-(root.levels[i-1]||0))*root.costs[i];
+				log(cost, (root.levels[i]-(root.levels[i-1]||0)), root.costs[i])
 			}
 			cost += (root.job-(root.levels[i-1]??0)) * root.costs[i];
 			log(cost, (root.job-(root.levels[i-1]??0)), root.costs[i]);
@@ -515,7 +522,7 @@ if (reversed == null) { reversed = false; }
 		if(this.totalFrames == 1) {
 			this.isSingleFrame = true;
 		}
-		var _this=this,x=5,index=root.btns2.getChildIndex(this.parent);
+		var _this=this,x=5;
 		_this.txt = document.createElement('input');
 		_this.txt.type='text';
 		_this.txt.style.position = "absolute";
@@ -547,11 +554,7 @@ if (reversed == null) { reversed = false; }
 		_this.txt.addEventListener('keyup',function(){
 			//this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
 			root.btns2.keyin(_this);
-		})
-		_this.txt.addEventListener('change',function(){
-			//this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
-			root.btns2.keyin(_this);
-			_this.text=root.sets2[index];
+			drawPie(root.sets2, root.btns2.shape, 260, root.btns2.colors);
 		})
 	}
 
@@ -620,12 +623,8 @@ if (reversed == null) { reversed = false; }
 			_this.txt.style.display='block';
 		}
 		_this.txt.addEventListener('keyup',function(){
-			//this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
+		//	this.value = root.sets[index] = root.hours[index] = Math.max(Math.min(number(this.value),24),0.5);
 			root.btns1.keyin(_this);
-		})
-		_this.txt.addEventListener('change',function(){
-			//root.btns1.keyin(_this);
-			this.value = root.hours[index];
 		})
 	}
 
@@ -1517,7 +1516,7 @@ if (reversed == null) { reversed = false; }
 			var cost=0,co2=0,income;
 			for (var i in root.sets2) {
 				cost+=root.sets2[i]*root.costs2[i];
-				log(cost, root.sets2[i], root.costs2[i]);
+				//log(cost, root.sets2[i], root.costs2[i]);
 				co2+=root.sets2[i]*root.co2[i];
 				log(co2, root.sets2[i], root.co2[i]);
 			}
@@ -1540,7 +1539,7 @@ if (reversed == null) { reversed = false; }
 			}
 			_this.num1.text = Math.round(cost);
 			_this.num2.text = Math.round(co2);
-			_this.num4.text = Math.round2(co2/10000,1);
+			_this.num4.text = Math.round2(co2*6/10000,1);
 			
 			_this.income.gotoAndStop(cost<root.cost?1:0);
 			_this.num3.text = Math.round(Math.abs(root.cost-cost));
@@ -1912,12 +1911,18 @@ if (reversed == null) { reversed = false; }
 			this.isSingleFrame = true;
 		}
 		var _this=this,mc,index,hour,str='',timeout;
-		root.btns1=this;
 		for (var i in _this.children) _this.children[i].gotoAndStop(0);
+		_this.keyin=keyin;
+		for (var i=0; i<6; i++){
+			_this.children[i].gotoAndStop(0);
+			//_this.children[i].on('pressup', function(e){ this.gotoAndStop(0) });
+			_this.children[i].num.i = i;
+		}
 		this.Hide = function (){
+			_this.children[3].next.mouseEnabled=_this.children[3].prev.mouseEnabled=false;
 			for (var i in _this.children){
 				if (!_this.children[i].num.txt) continue;
-				_this.children[i].num.Hide()
+				_this.children[i].num.Hide();
 			}
 		}
 		_this.Reset = function(){
@@ -1928,24 +1933,26 @@ if (reversed == null) { reversed = false; }
 			}
 		}
 		this.on("added", function (evt) {
-		  init();
+			init();
 		});
 		
 		this.on("removed", function (evt) {
 			_this.removeEventListener('click',Click);
-			//window.removeEventListener('keydown', keyin);
 		});
+		
 		init();
 		function init(){
-			log('btns1.init()');
+			log('btns1.init()')
+			root.btns1=_this;
+			setTimeout(function(){_this.children[3].next.mouseEnabled=_this.children[3].prev.mouseEnabled=true;},50)
+			
 			root.BT_lock1.visible = !root.sets.filter(n=> n>0).length;
 			for (var i in _this.children){
 				if (root.sets[i]==0) continue;
 				_this.children[i].gotoAndStop(1);
 				_this.children[i].num.Show();
 			}
-			_this.addEventListener('click',Click);
-			//window.addEventListener('keyup', keyin);
+			_this.addEventListener('pressup',Click);
 		}
 		
 		function Click(e){
@@ -1955,6 +1962,7 @@ if (reversed == null) { reversed = false; }
 			str='';
 			switch(e.target.name) {
 				case 'next':
+					e.target.gotoAndStop(0);
 					mc.gotoAndStop(1);
 					root.sets[index] = hour = root['hours'][index];
 					if (mc.num.txt){
@@ -1964,6 +1972,7 @@ if (reversed == null) { reversed = false; }
 					root.BT_lock1.visible=!true;
 					break;
 				case 'prev':
+					e.target.gotoAndStop(0);
 					mc.gotoAndStop(0);
 					root.sets[index] = 0;
 					root.BT_lock1.visible = !root.sets.filter(n=> n>0).length;
@@ -1980,10 +1989,20 @@ if (reversed == null) { reversed = false; }
 					break;
 			}
 		}
-		this.keyin = function (mc) {
+		function keyin(mc) {
 			mc.text = mc.text.replace(/[^0-9.]/g, "");	
-			hour = number(mc.text)||0;
-			root.sets[index] = root.hours[index] =  Math.min(Math.max(hour, .5), 24);
+			hour = Math.round((number(mc.text)||0)/0.5)*0.5;
+			root.sets[mc.i] = root.hours[mc.i] = Math.min(Math.max(hour, .5), 24);
+			log('keyin:','sets[',mc.i,']',root.sets[mc.i]);
+		}
+		_this.keyinAll = function () {
+			for (var i in _this.children){
+				if (!_this.children[i].num.text) continue;
+				keyin(_this.children[i].num);
+				log('keyinAll:',i,'text',_this.children[i].num.text,'sets[',i,']:',root.sets[i]);
+				_this.children[i].num.text=root.sets[i];
+			}
+		
 		}
 	}
 
@@ -2327,6 +2346,8 @@ if (reversed == null) { reversed = false; }
 		this.shape = new createjs.Shape();
 		this.Pie.addChild(this.shape)
 		this.keyin=keyin;
+		this.colors=colors;
+		root.btns2=this;
 		for (var i=0; i<7; i++){
 			_this.children[i].gotoAndStop(0);
 			_this.children[i].num.text = 0;
@@ -2347,27 +2368,34 @@ if (reversed == null) { reversed = false; }
 			}
 		});
 		function init(){
-			log('btns2.init()')
-			root.btns2=_this;
+			log('btns2.init()');
 			root.BT_lock3.visible=true;
 			root.sets2 = [0,0,0,0,0,0,0];
 			_this.mW.text = root.job;
 			_this.shape.graphics.clear();
 			for (var i=0; i<7; i++){
 				_this.children[i].gotoAndStop(0);
-			}
+			} 
 		}
 		function keyin(mc) {
 			omW=0;
 			for (var i=0; i<7; i++) {
 				if (i!=mc.i) omW+=root.sets2[i];
 			}
-			log(root.job-omW,mc.text, mc.i);
+			//log(root.job-omW,mc.text, mc.i);
 			mc.text = mc.text.replace(/[^0-9.]/g, "");
 			root.sets2[mc.i] = Math.round2(Math.max(Math.min(number(mc.text)||0,root.job-omW),0),1);
 			_this.mW.text = Math.round2(root.job-omW-root.sets2[mc.i],1);
+			//log(root.sets2[mc.i]);
 			mc.parent.gotoAndStop(root.sets2[mc.i]>0?1:0);
 			root.BT_lock3.visible = !(_this.mW.text=='0');
+		}
+		_this.keyinAll = function () {
+			for (var i=0; i<7; i++) {
+				keyin(_this.children[i].num);
+				log('keyinAll:',i,'text',_this.children[i].num.text,'sets2[',i,']:',root.sets2[i]);
+				_this.children[i].num.text=root.sets2[i];
+			}
 			drawPie(root.sets2, _this.shape, 260, colors);
 		}
 	}
@@ -2387,9 +2415,9 @@ if (reversed == null) { reversed = false; }
 	this.mW.name = "mW";
 	this.mW.textAlign = "center";
 	this.mW.lineHeight = 58;
-	this.mW.lineWidth = 194;
+	this.mW.lineWidth = 247;
 	this.mW.parent = this;
-	this.mW.setTransform(1085.2,132.8);
+	this.mW.setTransform(1081,130.8);
 
 	this.instance = new lib.btn_gen7();
 	this.instance.setTransform(320,906,1,1,0,0,0,90,45);
@@ -2416,7 +2444,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.btns2, new cjs.Rectangle(230,130.8,954.3,820.2), null);
+}).prototype = getMCSymbolPrototype(lib.btns2, new cjs.Rectangle(230,128.8,976.3,822.2), null);
 
 
 // stage content:
@@ -2434,7 +2462,6 @@ if (reversed == null) { reversed = false; }
 	this.actionFrames = [0,1];
 	// timeline functions:
 	this.frame_0 = function() {
-		log('2-1-0113-v5')
 		var _this=this;
 		this.powers=[1500,130,370,140,360,50];
 		this.levels=[120,330,500,700,1000,9999];
@@ -2445,11 +2472,24 @@ if (reversed == null) { reversed = false; }
 		this.sets=[0,0,0,0,0,0];
 		this.sets2=[0,0,0,0,0,0,0];
 		this.stop();
-		this.addEventListener('click',Click);
+		this.addEventListener('pressup',Click);
+		window.addEventListener('click',Focus);
+		function Focus(e){
+			//log(root, root.currentFrame);
+			switch (root.currentFrame){
+				case 2:
+					if (!root.btns1.keyinAll) return;
+					root.btns1.keyinAll();
+					break;
+				case 4:
+					if (!root.btns2) return;
+					root.btns2.keyinAll();
+					break;
+			}
+		}
 		if ( !_this.bgm ) _this.bgm=playSound('bgm',-1);
 		function Click(e){
 			log(e.target.name);
-			document.activeElement?.blur();
 			switch (e.target.name){
 				case 'BT_re':
 					playSound('click');
@@ -2484,6 +2524,15 @@ if (reversed == null) { reversed = false; }
 					e.target.parent.gotoAndStop(1);
 					break;
 			}
+			document.activeElement?.blur();
+		}
+		
+		//var stage = new createjs.Stage("canvas");
+		var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+		
+		if (isTouch) {
+			//stage.enableMouseOver(20);
+			createjs.Touch.enable(stage);
 		}
 	}
 	this.frame_1 = function() {
@@ -2495,6 +2544,12 @@ if (reversed == null) { reversed = false; }
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(5));
 
+	// txt
+	this.instance = new lib.CachedBmp_1();
+	this.instance.setTransform(1558.75,0,0.5,0.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(6));
+
 	// 圖層_1
 	this.BT_start = new lib.start_bt();
 	this.BT_start.name = "BT_start";
@@ -2504,19 +2559,19 @@ if (reversed == null) { reversed = false; }
 	this.btns1 = new lib.btns1();
 	this.btns1.name = "btns1";
 
-	this.instance = new lib.texts();
-	this.instance.setTransform(1154.2,594.3);
+	this.instance_1 = new lib.texts();
+	this.instance_1.setTransform(1154.2,594.3);
 
-	this.instance_1 = new lib.btns2();
-	this.instance_1.setTransform(90,348,1,1,0,0,0,90,348);
+	this.instance_2 = new lib.btns2();
+	this.instance_2.setTransform(90,348,1,1,0,0,0,90,348);
 
-	this.instance_2 = new lib.end();
-	this.instance_2.setTransform(-8,1.5,1,1,0,0,0,-8,1.5);
+	this.instance_3 = new lib.end();
+	this.instance_3.setTransform(-8,1.5,1,1,0,0,0,-8,1.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.BT_start}]}).to({state:[{t:this.btns1}]},2).to({state:[{t:this.instance}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.BT_start}]}).to({state:[{t:this.btns1}]},2).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).wait(1));
 
 	// BG
-	this.instance_3 = new lib.start_bg();
+	this.instance_4 = new lib.start_bg();
 
 	this.BT_lock1 = new lib.BT_lock1();
 	this.BT_lock1.name = "BT_lock1";
@@ -2527,7 +2582,7 @@ if (reversed == null) { reversed = false; }
 	this.BT_next1.setTransform(1690,960);
 	new cjs.ButtonHelper(this.BT_next1, 0, 1, 2, false, new lib.btn1(), 3);
 
-	this.instance_4 = new lib.main_bg();
+	this.instance_5 = new lib.main_bg();
 
 	this.BT_prev1 = new lib.btn2();
 	this.BT_prev1.name = "BT_prev1";
@@ -2539,7 +2594,7 @@ if (reversed == null) { reversed = false; }
 	this.BT_next2.setTransform(1630,873.95);
 	new cjs.ButtonHelper(this.BT_next2, 0, 1, 2, false, new lib.btn3(), 3);
 
-	this.instance_5 = new lib.result_bg();
+	this.instance_6 = new lib.result_bg();
 
 	this.BT_lock3 = new lib.BT_lock3();
 	this.BT_lock3.name = "BT_lock3";
@@ -2550,16 +2605,16 @@ if (reversed == null) { reversed = false; }
 	this.BT_next3.setTransform(1718,988);
 	new cjs.ButtonHelper(this.BT_next3, 0, 1, 2, false, new lib.btn1(), 3);
 
-	this.instance_6 = new lib.power_bg();
+	this.instance_7 = new lib.power_bg();
 
 	this.BT_re = new lib.btn4();
 	this.BT_re.name = "BT_re";
 	this.BT_re.setTransform(1392.4,964.25);
 	new cjs.ButtonHelper(this.BT_re, 0, 1, 2, false, new lib.btn4(), 3);
 
-	this.instance_7 = new lib.end_bg();
+	this.instance_8 = new lib.end_bg();
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3}]}).to({state:[{t:this.instance_4},{t:this.BT_next1},{t:this.BT_lock1}]},2).to({state:[{t:this.instance_5},{t:this.BT_next2},{t:this.BT_prev1}]},1).to({state:[{t:this.instance_6},{t:this.BT_next3},{t:this.BT_lock3}]},1).to({state:[{t:this.instance_7},{t:this.BT_re}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4}]}).to({state:[{t:this.instance_5},{t:this.BT_next1},{t:this.BT_lock1}]},2).to({state:[{t:this.instance_6},{t:this.BT_next2},{t:this.BT_prev1}]},1).to({state:[{t:this.instance_7},{t:this.BT_next3},{t:this.BT_lock3}]},1).to({state:[{t:this.instance_8},{t:this.BT_re}]},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -2574,9 +2629,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1768285316882", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1768285316915", id:"bgm"},
-		{src:"sounds/click.mp3?1768285316915", id:"click"}
+		{src:"images/index_atlas_1.png?1768374083837", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1768374083877", id:"bgm"},
+		{src:"sounds/click.mp3?1768374083877", id:"click"}
 	],
 	preloads: []
 };
