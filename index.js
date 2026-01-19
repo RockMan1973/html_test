@@ -27,7 +27,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_8 = function() {
+(lib.CachedBmp_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
@@ -1408,9 +1408,9 @@ if (reversed == null) { reversed = false; }
 	this.instance_4.setTransform(-0.5,-101);
 
 	this.instance_5 = new lib.end_tree_max();
-	this.instance_5.setTransform(-276.5,-39.5);
+	this.instance_5.setTransform(-277,-57);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_5,p:{x:-276.5,y:-39.5}}]},1).to({state:[{t:this.instance_5,p:{x:-277,y:-57}}]},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_5}]},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -1604,7 +1604,7 @@ if (reversed == null) { reversed = false; }
 	this.num1.lineHeight = 58;
 	this.num1.lineWidth = 298;
 	this.num1.parent = this;
-	this.num1.setTransform(533.15,328.9);
+	this.num1.setTransform(533.15,330.4);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.num1},{t:this.num2},{t:this.num3},{t:this.num4}]}).wait(1));
 
@@ -2539,6 +2539,7 @@ if (reversed == null) { reversed = false; }
 			//stage.enableMouseOver(20);
 			createjs.Touch.enable(stage);
 		}
+		
 	}
 	this.frame_1 = function() {
 		root.hours=[0.5,0.5,0.5,0.5,0.5,0.5];
@@ -2550,7 +2551,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(5));
 
 	// txt
-	this.instance = new lib.CachedBmp_8();
+	this.instance = new lib.CachedBmp_2();
 	this.instance.setTransform(1558.75,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(6));
@@ -2634,9 +2635,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1768544364700", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1768544364736", id:"bgm"},
-		{src:"sounds/click.mp3?1768544364736", id:"click"}
+		{src:"images/index_atlas_1.png?1768790114990", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1768790115023", id:"bgm"},
+		{src:"sounds/click.mp3?1768790115023", id:"click"}
 	],
 	preloads: []
 };
