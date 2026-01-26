@@ -1990,6 +1990,13 @@ if (reversed == null) { reversed = false; }
 					break;
 				case 'minus':
 					hour = number(mc.num.text);
+					if (hour==.5){
+						mc.gotoAndStop(0);
+						root.sets[index] = 0;
+						root.BT_lock1.visible = !root.sets.filter(n=> n>0).length;
+						mc.num.Hide();
+						mc=null;
+					}
 					root.sets[index] = mc.num.text = root.hours[index] = Math.max(hour-=0.5, .5);
 					break;
 			}
@@ -2539,7 +2546,6 @@ if (reversed == null) { reversed = false; }
 			//stage.enableMouseOver(20);
 			createjs.Touch.enable(stage);
 		}
-		
 	}
 	this.frame_1 = function() {
 		root.hours=[0.5,0.5,0.5,0.5,0.5,0.5];
@@ -2635,9 +2641,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1768790114990", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1768790115023", id:"bgm"},
-		{src:"sounds/click.mp3?1768790115023", id:"click"}
+		{src:"images/index_atlas_1.png?1769405970658", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1769405970692", id:"bgm"},
+		{src:"sounds/click.mp3?1769405970692", id:"click"}
 	],
 	preloads: []
 };
