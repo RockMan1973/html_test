@@ -1,6 +1,7 @@
 var listener={};
 Object.defineProperty(createjs.MovieClip.prototype, "prevFrame", {value:function(){this.gotoAndStop(Math.max(this.currentFrame-1,0))}});
 Object.defineProperty(createjs.MovieClip.prototype, "nextFrame", {value:function(){this.gotoAndStop(Math.min(this.currentFrame+1,this.totalFrames-1))}});
+Object.defineProperty(createjs.MovieClip.prototype, "getIndex", {value:function(){ return this.parent.getChildIndex(this) }});
 Object.defineProperty(createjs.MovieClip.prototype, "hitTest", {value:function(a,b,w,h){
 	return Math.abs(a.x - a.parent.x - b.x - b.parent.x) / 2 < w && Math.abs(a.y -a.parent.y - b.y - b.parent.y) / 2 < h;
 }});
