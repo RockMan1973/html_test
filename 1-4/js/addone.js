@@ -6,15 +6,31 @@ Object.defineProperty(createjs.MovieClip.prototype, "hitTest", {value:function(a
 	return Math.abs(a.x - a.parent.x - b.x - b.parent.x) / 2 < w && Math.abs(a.y -a.parent.y - b.y - b.parent.y) / 2 < h;
 }});
 Object.defineProperty(createjs.MovieClip.prototype, "hitTestPoint", {value:function(a){
+	//影片片段，且變形中心要移到元件左上角
 	var _this=this;
 	var b = _this.getCenter();
 	var obj = { a:a, b:b, t:{ x:int(_this.x), y:int(_this.y)} };
-	obj.rx = Math.abs(obj.a.x-obj.b.x);
-	obj.ry = Math.abs(obj.a.y-obj.b.y);
-	obj.hit = obj.rx < obj.b.b.width && obj.ry < obj.b.b.height;
+	obj.rx = Math.abs(a.x-b.ox);
+	obj.ry = Math.abs(a.y-b.oy);
+	obj.hit = obj.rx < b.b.width && obj.ry < b.b.height;
+	//DrawHit(a,b);
 	//log( obj );
 	return obj.hit;
 }});
+function DrawHit(a,b){
+	if (!root.sp) {
+		root.sp=new createjs.Shape();
+		root.addChild(root.sp);
+	}
+	var g = root.sp.graphics;
+	//g.clear();
+	g.setStrokeStyle(1);
+	g.beginStroke("#000000");
+	g.beginFill("#ff000011");
+	g.drawCircle(a.x,a.y,10);
+	g.drawRect(b.ox, b.oy, b.b.width, b.b.height);
+
+}
 Object.defineProperty(createjs.MovieClip.prototype, "hitTestCenter", {value:function(mc){
 	var _this=this;
 	var a = mc.getCenter();
