@@ -3250,10 +3250,11 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 
-	this.actionFrames = [0,2,3,4,5,6,7,8];
+	this.actionFrames = [0,1,2,3,4,5,6,7,8];
 	// timeline functions:
 	this.frame_0 = function() {
 		var _this=this;
+		root.quest_set=[[0,0,0,0],[1,5,0,2],[4,0,1,3],[0,1,1,4],[3,3,2,0]];
 		root.quest=0;
 		root.logs=[[],[],[],[]];
 		root.sets=[0,0,0,0];
@@ -3267,9 +3268,9 @@ if (reversed == null) { reversed = false; }
 		root.member=0;
 		this.stop();
 		//this.addEventListener('pressup',Click);
-		if ( !_this.bgm ) _this.bgm=playSound('bgm',-1);
-		function Click(e){
-		}
+		bgm.src = 'sounds/bgm.mp3';
+		bgm.loop=true;
+		bgm.play();
 		if (isTouch) createjs.Touch.enable(stage);
 		root.nextScene=()=>{
 			root.gotoAndStop('s'+(++root.scene));
@@ -3302,7 +3303,6 @@ if (reversed == null) { reversed = false; }
 			var btn=e.target;
 			if (rolls.filter(v=>v==btn.name).length) {
 				playSound('click');
-				if (root.dialog) root.dialog.stop();
 				btn.scaleX = btn.scaleY = 1;
 			}
 			
@@ -3366,9 +3366,7 @@ if (reversed == null) { reversed = false; }
 					root.Again();
 					break;
 				case 'BT_again2':
-				case 'BT_prev_q2':
 					root.gotoAndStop(6);
-					if (root.num.Hide) root.num.Hide();
 					break;
 				case 'BT_result':
 				case 'BT_report':
@@ -3379,7 +3377,7 @@ if (reversed == null) { reversed = false; }
 				case 'BT_reset2':
 					root.quest=0;
 					root.times=0;
-					root.sets=[0,0,0,0];
+					//root.sets=[0,0,0,0];
 					root.ani_level=[,1,1,1,1];
 					root.ani_xp=[,0,0,0,0];
 					root.def_level=1;
@@ -3387,6 +3385,7 @@ if (reversed == null) { reversed = false; }
 					root.member=0;
 					root.gotoAndStop(2);
 					break;
+				case 'BT_prev_q2':
 				case 'BT_reset':
 					//root.sets=[0,0,0,0];
 					root.ani_level=[,1,1,1,1];
@@ -3395,8 +3394,7 @@ if (reversed == null) { reversed = false; }
 					root.def_xp=0;
 					root.member=0; 
 					//root.member=[,0,0,0,0];
-					//root.gotoAndStop(1);
-					root.Again();
+					root.gotoAndStop(2);
 					break;
 				case 'BT_clear':
 					root.logs=[[],[],[],[]];
@@ -3416,14 +3414,13 @@ if (reversed == null) { reversed = false; }
 					root.def_level=1;
 					root.def_xp=0;
 					root.member=0;
-					root.gotoAndStop(2);
 					root.quest=parent.currentFrame;
 					root.times=5;
-					root.sets=[[0,0,0,0],[1,5,0,2],[4,0,1,3],[0,1,1,4],[3,3,2,0]][root.quest];
-					root.gotoAndStop(1);
+					root.sets=root.quest_set[root.quest];
+					root.gotoAndStop(2);
 					break;
 				case 'BT_start': 
-					if (_this.bgm.playState!='playSucceeded') _this.bgm.play();
+					if (bgm.paused) bgm.play();
 					root.gotoAndStop(2);
 					break;
 				case 'BT_replay':
@@ -3435,6 +3432,7 @@ if (reversed == null) { reversed = false; }
 					break;
 				case 'BT_prev_q':
 					root.gotoAndStop(6);
+					if (root.num.Hide) root.num.Hide();
 					break;
 				case 'BT_prev':
 					parent.prevFrame();
@@ -3452,11 +3450,17 @@ if (reversed == null) { reversed = false; }
 			}
 		});
 	}
+	this.frame_1 = function() {
+		this.stop();
+		log("root.currentFrame:",root.currentFrame)
+	}
 	this.frame_2 = function() {
-		root.dialog=playSound('bgm1');
+		log("root.currentFrame:",root.currentFrame)
+		playSound('bgm1');
 		root.btns_a.gotoAndStop(root.sets[root.currentFrame-2]);
 		root.modes.gotoAndStop(root.quest);
-		
+		root.BT_next.visible=!!root.sets[root.currentFrame-2];
+		/*
 		root.BT_a1.mouseEnabled=root.BT_a2.mouseEnabled=root.BT_a3.mouseEnabled=root.BT_a4.mouseEnabled=true;
 		switch(root.quest){
 			case 1:
@@ -3464,12 +3468,12 @@ if (reversed == null) { reversed = false; }
 			case 4:
 				root.BT_a1.mouseEnabled=root.BT_a2.mouseEnabled=root.BT_a3.mouseEnabled=root.BT_a4.mouseEnabled=false;
 				break;
-		}
+		}*/
 	}
 	this.frame_3 = function() {
-		root.dialog=playSound('bgm2');
+		playSound('bgm2');
 		root.btns_b.gotoAndStop(root.sets[root.currentFrame-2]);
-		
+		/*
 		root.BT_b1.mouseEnabled=root.BT_b2.mouseEnabled=root.BT_b3.mouseEnabled=root.BT_b4.mouseEnabled=root.BT_b5.mouseEnabled=root.BT_b6.mouseEnabled=true;
 		switch(root.quest){
 			case 3:
@@ -3477,11 +3481,12 @@ if (reversed == null) { reversed = false; }
 			case 4:
 				root.BT_b1.mouseEnabled=root.BT_b2.mouseEnabled=root.BT_b3.mouseEnabled=root.BT_b4.mouseEnabled=root.BT_b5.mouseEnabled=root.BT_b6.mouseEnabled=false;
 				break;
-		}
+		}*/
 	}
 	this.frame_4 = function() {
-		root.dialog=playSound('bgm3');
+		playSound('bgm3');
 		root.btns_c.gotoAndStop(root.sets[root.currentFrame-2]);
+		/*
 		root.BT_c1.mouseEnabled=root.BT_c2.mouseEnabled=true;
 		switch(root.quest){
 			case 4:
@@ -3489,11 +3494,12 @@ if (reversed == null) { reversed = false; }
 			case 3:
 				root.BT_c1.mouseEnabled=root.BT_c2.mouseEnabled=false;
 				break;
-		}
+		}*/
 	}
 	this.frame_5 = function() {
-		root.dialog=playSound('bgm4');
+		playSound('bgm4');
 		root.btns_d.gotoAndStop(root.sets[root.currentFrame-2]);
+		/*
 		root.BT_d1.mouseEnabled=root.BT_d2.mouseEnabled=root.BT_d3.mouseEnabled=root.BT_d4.mouseEnabled=true;
 		switch(root.quest){
 			case 1:
@@ -3501,7 +3507,7 @@ if (reversed == null) { reversed = false; }
 			case 3:
 				root.BT_d1.mouseEnabled=root.BT_d2.mouseEnabled=root.BT_d3.mouseEnabled=root.BT_d4.mouseEnabled=false;
 				break;
-		}
+		}*/
 	}
 	this.frame_6 = function() {
 		var type=root.sets[0]+root.sets[3],
@@ -3573,6 +3579,15 @@ if (reversed == null) { reversed = false; }
 			
 			video.src='mp4/pk'+root.sets[0]+'.mp4';
 		}
+		function CheckSet(){
+			var n=0;
+			
+			for (var i=0;i<4;i++){
+				if (root.quest_set[root.quest][i]==root.sets[i] || root.quest_set[root.quest][i]==0) n++;
+				log (root.quest_set[root.quest][i],root.sets[i] ,n);
+			}
+			return n==4;
+		}
 		function Win(tmp, xp, member){
 			root.BT_fight_n.visible=false;
 			root.pkend.visible=root.BT_again.visible=root.BT_reset.visible=root.BT_result.visible=true;
@@ -3581,9 +3596,10 @@ if (reversed == null) { reversed = false; }
 			root.member+=member;
 			root.member=Math.min(3,root.member);
 			root.member_t.text='免疫記憶：'+root.member;
+			if (root.times>0 && CheckSet()) root.times--;
 			log(tmp);
 			root.str+=tmp+'<br>';
-			defXP(40);
+			defXP(xp);
 			Logs(0);
 			Logs(1);
 			Logs(3);
@@ -3644,6 +3660,7 @@ if (reversed == null) { reversed = false; }
 				Logs(0);
 				Logs(1);
 				Logs(3);
+				if (root.times>0 && CheckSet()) root.times--;
 				return;
 			}
 			if (root.round>=12){
@@ -3657,6 +3674,7 @@ if (reversed == null) { reversed = false; }
 				Logs(0);
 				Logs(1);
 				Logs(3);
+				if (root.times>0 && CheckSet()) root.times--;
 				return;
 			}
 			//root.BT_fight.visible=true;
@@ -3669,6 +3687,9 @@ if (reversed == null) { reversed = false; }
 			if (root.def_xp>=mxp) {
 				root.def_xp-=mxp;
 				root.def_level++;
+				name='免疫 LV'+root.def_level;
+				root.def_name_b.text=name;
+				root.def_name.text=name;
 				tmp='<def>免疫系統升級 Lv'+root.def_level+'</def>';
 				log(tmp);
 				root.str+=tmp+'<br>';
@@ -3715,7 +3736,7 @@ if (reversed == null) { reversed = false; }
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(2).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1).call(this.frame_5).wait(1).call(this.frame_6).wait(1).call(this.frame_7).wait(1).call(this.frame_8).wait(6));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1).call(this.frame_5).wait(1).call(this.frame_6).wait(1).call(this.frame_7).wait(1).call(this.frame_8).wait(6));
 
 	// 圖層_10
 	this.instance = new lib.CachedBmp_7();
@@ -4236,17 +4257,10 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 0.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1770300020735", id:"index_atlas_1"},
-		{src:"images/index_atlas_2.png?1770300020735", id:"index_atlas_2"},
-		{src:"images/index_atlas_3.png?1770300020735", id:"index_atlas_3"},
-		{src:"images/index_atlas_4.png?1770300020735", id:"index_atlas_4"},
-		{src:"sounds/bgm.mp3?1770300020780", id:"bgm"},
-		{src:"sounds/click.mp3?1770300020780", id:"click"},
-		{src:"sounds/bgm1.mp3?1770300020780", id:"bgm1"},
-		{src:"sounds/bgm2.mp3?1770300020780", id:"bgm2"},
-		{src:"sounds/bgm3.mp3?1770300020780", id:"bgm3"},
-		{src:"sounds/bgm4.mp3?1770300020780", id:"bgm4"},
-		{src:"sounds/lose.mp3?1770300020780", id:"lose"}
+		{src:"images/index_atlas_1.png?1770350274280", id:"index_atlas_1"},
+		{src:"images/index_atlas_2.png?1770350274280", id:"index_atlas_2"},
+		{src:"images/index_atlas_3.png?1770350274280", id:"index_atlas_3"},
+		{src:"images/index_atlas_4.png?1770350274280", id:"index_atlas_4"}
 	],
 	preloads: []
 };

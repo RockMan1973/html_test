@@ -14,7 +14,7 @@
 <title>免疫系統大作戰</title>
 <!-- write your code here -->
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="index.js?1770300020787"></script>
+<script src="index.js?1770350274338"></script>
 <script src="js/addone.js"></script>
 <style>
 @font-face {
@@ -34,7 +34,6 @@ function init() {
 	var comp=AdobeAn.getComposition("82C485BAA75C414285EF88AE9B70859C");
 	var lib=comp.getLibrary();
 	var loader = new createjs.LoadQueue(false);
-	loader.installPlugin(createjs.Sound);
 	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
 	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
 	var lib=comp.getLibrary();
@@ -68,8 +67,6 @@ function handleComplete(evt,comp) {
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
 }
-function playSound(id, loop, offset) {
-	return createjs.Sound.play(id, {'interrupt':createjs.Sound.INTERRUPT_EARLY, 'loop': loop, 'offset': offset});}
 </script>
 <!-- write your code here -->
 </head>

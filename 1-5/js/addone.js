@@ -70,15 +70,26 @@ function Resize(w,h) {
 	anim_container.style.height=(h*scale)+'px';
 	//canvas.style.left = (w*(scale-1)/2)+'px';
 	//canvas.style.top = (h*(scale-1)/2)+'px';
-
-	
 	//自動隱藏網址列---因安全性問題被禁用了
 	//setTimeout(function(){ window.scrollTo(0, 1); }, 10);
 }
-function playSound(id, loop) {
+/*function playSound(id, loop) {
 	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 	return createjs.Sound.play(id, {loop:loop});
-
+}*/
+const audio = new Audio();
+const bgm = new Audio();
+function playSound(id, loop=0) {
+	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+	audio.pause();
+	audio.src="sounds/"+id+".mp3";
+	const playPromise = audio.play();
+	if (playPromise !== undefined) {
+    playPromise.catch(err => {
+      // 這裡 log 起來即可，通常不用當成 fatal error
+      //console.warn('play() rejected:', err);
+    });
+  }
 }
 function Draw(mc){
 	var g = new createjs.Graphics();
