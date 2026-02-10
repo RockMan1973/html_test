@@ -1,6 +1,7 @@
 var listener={};
 Object.defineProperty(createjs.MovieClip.prototype, "prevFrame", {value:function(){this.gotoAndStop(Math.max(this.currentFrame-1,0))}});
 Object.defineProperty(createjs.MovieClip.prototype, "nextFrame", {value:function(){this.gotoAndStop(Math.min(this.currentFrame+1,this.totalFrames-1))}});
+Object.defineProperty(createjs.MovieClip.prototype, "labelFrame", {get:function(){ return root.labels.find(o=>o.label==root.currentLabel)?.position }});
 Object.defineProperty(createjs.MovieClip.prototype, "getIndex", {value:function(){ return this.parent.getChildIndex(this) }});
 Object.defineProperty(createjs.MovieClip.prototype, "hitTest", {value:function(a,b,w,h){
 	return Math.abs(a.x - a.parent.x - b.x - b.parent.x) / 2 < w && Math.abs(a.y -a.parent.y - b.y - b.parent.y) / 2 < h;
@@ -77,10 +78,47 @@ function Resize(w,h) {
 	//自動隱藏網址列---因安全性問題被禁用了
 	//setTimeout(function(){ window.scrollTo(0, 1); }, 10);
 }
-function playSound(id, loop) {
+/*function playSound(id, loop) {
 	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 	return createjs.Sound.play(id, {loop:loop});
 
+}*/
+const audio = new Audio();
+const dialog = new Audio();
+const bgm = new Audio();
+bgm.src = 'sounds/bgm.mp3';
+bgm.loop=true;
+const playPromise = bgm.play();
+if (playPromise !== undefined) {
+	playPromise.catch(err => {
+		// 這裡 log 起來即可，通常不用當成 fatal error
+		//console.warn('play() rejected:', err);
+	});
+}
+function playSound(id, loop=0) {
+	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+	audio.pause();
+	audio.src="sounds/"+id+".mp3";
+	const playPromise = audio.play();
+	if (playPromise !== undefined) {
+    playPromise.catch(err => {
+      // 這裡 log 起來即可，通常不用當成 fatal error
+      //console.warn('play() rejected:', err);
+    });
+  }
+}
+function playDialog(id=root.currentLabel+'_os'+(root.currentFrame-root.labelFrame+1), loop=0) {
+	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+	dialog.pause();
+	dialog.src="sounds/"+id+".mp3";
+	log(dialog.src);
+	const playPromise = dialog.play();
+	if (playPromise !== undefined) {
+    playPromise.catch(err => {
+      // 這裡 log 起來即可，通常不用當成 fatal error
+      //console.warn('play() rejected:', err);
+    });
+  }
 }
 function Draw(mc){
 	var g = new createjs.Graphics();
