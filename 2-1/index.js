@@ -27,7 +27,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_2 = function() {
+(lib.CachedBmp_3 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
@@ -2002,6 +2002,7 @@ if (reversed == null) { reversed = false; }
 			}
 		}
 		function keyin(mc) {
+			if (!mc.parent) return;
 			mc.text = mc.text.replace(/[^0-9.]/g, "");	
 			hour = Math.round((number(mc.text)||0)/0.5)*0.5;
 			root.sets[mc.i] = root.hours[mc.i] = Math.min(Math.max(hour, .5), 24);
@@ -2539,13 +2540,7 @@ if (reversed == null) { reversed = false; }
 			document.activeElement?.blur();
 		}
 		
-		//var stage = new createjs.Stage("canvas");
-		var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-		
-		if (isTouch) {
-			//stage.enableMouseOver(20);
-			createjs.Touch.enable(stage);
-		}
+		if (isTouch) createjs.Touch.enable(stage);
 	}
 	this.frame_1 = function() {
 		root.hours=[0.5,0.5,0.5,0.5,0.5,0.5];
@@ -2557,7 +2552,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(5));
 
 	// txt
-	this.instance = new lib.CachedBmp_2();
+	this.instance = new lib.CachedBmp_3();
 	this.instance.setTransform(1558.75,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(6));
@@ -2641,9 +2636,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1769405970658", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1769405970692", id:"bgm"},
-		{src:"sounds/click.mp3?1769405970692", id:"click"}
+		{src:"images/index_atlas_1.png?1770787461024", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1770787461087", id:"bgm"},
+		{src:"sounds/click.mp3?1770787461087", id:"click"}
 	],
 	preloads: []
 };

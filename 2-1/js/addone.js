@@ -45,6 +45,7 @@ Object.defineProperty(window.__proto__, "root", {get:function (){ return stage.g
 Object.defineProperty(window.__proto__, "isiOS", {get:function (){ return navigator.userAgent.match(/iPhone|iPad|iPod/i);}});
 Object.defineProperty(window.__proto__, "isAndroid", {get:function (){ return navigator.userAgent.match(/Android/i);}});
 Object.defineProperty(window.__proto__, "isMobile", {get:function (){ return isiOS || isAndroid;}});
+Object.defineProperty(window.__proto__, "isTouch", {get:function (){ return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);}});
 Object.defineProperty(window.__proto__, "nextmc", {get:function (){ return stage.getChildAt(0).nextmc;}});
 Object.defineProperty(window.__proto__, "int", {value:parseInt});
 Object.defineProperty(window.__proto__, "number", {value:parseFloat});
@@ -53,6 +54,7 @@ Object.defineProperty(window.__proto__, "drawPie", {value:drawPie});
 Object.defineProperty(window.__proto__, "Play", {value:function() { stage.children[0].play(); }});
 Object.defineProperty(window.__proto__, "Check", {value:function(n) { stage.children[0].Check(n); }});
 Object.defineProperty(Math.__proto__, "round2", {value:function(n,s) { return Math.round(n * Math.pow(10, s)) / Math.pow(10, s); }});
+Object.defineProperty(Array.__proto__, "plus", {value:function(s) { for(var i in this) this[i]+=s[i]; }});
 
 var scale=1;
 function Resize(w,h) {
@@ -88,37 +90,37 @@ function Draw(mc){
 }
 
 function drawPie(data, mc, radius = 80, color = ["#f66", "#6c6", "#66f", "#fc6", "#ccc"]) {
-  var g = mc.graphics;
-  
-  //var g = shape.Graphics;
-  var total = data.reduce(function (a, b) { return a + b; }, 0);
+	var g = mc.graphics;
+	
+	//var g = shape.Graphics;
+	var total = data.reduce(function (a, b) { return a + b; }, 0);
 
-  var cx = 0;   // 以 MovieClip 自己的 (0,0) 為中心
-  var cy = 0;
-  var r  = radius;
+	var cx = 0;   // 以 MovieClip 自己的 (0,0) 為中心
+	var cy = 0;
+	var r  = radius;
 
-  var startAngle = -Math.PI / 2;   // 從正上方開始
+	var startAngle = -Math.PI / 2;   // 從正上方開始
 
-  var colors = color;
+	var colors = color;
 
-  data.forEach(function (value, idx) {
-    var sliceAngle = value / total * Math.PI * 2;
-    var endAngle = startAngle + sliceAngle;
+	data.forEach(function (value, idx) {
+		var sliceAngle = value / total * Math.PI * 2;
+		var endAngle = startAngle + sliceAngle;
 
-    g.beginFill(colors[idx % colors.length]);
-    g.moveTo(cx, cy);
-    g.arc(cx, cy, r, startAngle, endAngle);
-    g.lineTo(cx, cy);
-    g.endFill();
+		g.beginFill(colors[idx % colors.length]);
+		g.moveTo(cx, cy);
+		g.arc(cx, cy, r, startAngle, endAngle);
+		g.lineTo(cx, cy);
+		g.endFill();
 
-    startAngle = endAngle;
-  });
+		startAngle = endAngle;
+	});
 };
 function downloadDataURL(filename) {
-  var a = document.createElement("a");
-  a.href = stage.toDataURL("#fff","image/png");
-  a.download = filename || "image.png";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+	var a = document.createElement("a");
+	a.href = stage.toDataURL("#fff","image/png");
+	a.download = filename || "image.png";
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
 }
