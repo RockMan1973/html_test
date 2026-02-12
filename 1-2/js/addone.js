@@ -1,7 +1,7 @@
 var listener={};
 Object.defineProperty(createjs.MovieClip.prototype, "prevFrame", {value:function(){this.gotoAndStop(Math.max(this.currentFrame-1,0))}});
 Object.defineProperty(createjs.MovieClip.prototype, "nextFrame", {value:function(){this.gotoAndStop(Math.min(this.currentFrame+1,this.totalFrames-1))}});
-Object.defineProperty(createjs.MovieClip.prototype, "getIndex", {value:function(){ return this.parent.getChildIndex(this)}});
+Object.defineProperty(createjs.MovieClip.prototype, "getIndex", {value:function(){ return this.parent.getChildIndex(this) }});
 Object.defineProperty(createjs.MovieClip.prototype, "hitTest", {value:function(a,b,w,h){
 	return Math.abs(a.x - a.parent.x - b.x - b.parent.x) / 2 < w && Math.abs(a.y -a.parent.y - b.y - b.parent.y) / 2 < h;
 }});
@@ -46,6 +46,7 @@ Object.defineProperty(window.__proto__, "root", {get:function (){ return stage.g
 Object.defineProperty(window.__proto__, "isiOS", {get:function (){ return navigator.userAgent.match(/iPhone|iPad|iPod/i);}});
 Object.defineProperty(window.__proto__, "isAndroid", {get:function (){ return navigator.userAgent.match(/Android/i);}});
 Object.defineProperty(window.__proto__, "isMobile", {get:function (){ return isiOS || isAndroid;}});
+Object.defineProperty(window.__proto__, "isTouch", {get:function (){ return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);}});
 Object.defineProperty(window.__proto__, "nextmc", {get:function (){ return stage.getChildAt(0).nextmc;}});
 Object.defineProperty(window.__proto__, "int", {value:parseInt});
 Object.defineProperty(window.__proto__, "number", {value:parseFloat});

@@ -37,7 +37,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_4 = function() {
+(lib.CachedBmp_5 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
@@ -2826,7 +2826,7 @@ if (reversed == null) { reversed = false; }
 			this.isSingleFrame = true;
 		}
 		this.on("added", function (evt) {
-			for (var i=0;i<4;i++){
+			for (var i=0;i<5;i++){
 				this.children[i].gotoAndStop(0);
 			}
 		});
@@ -3984,13 +3984,7 @@ if (reversed == null) { reversed = false; }
 				if (root.mouse) root.mouse.visible=!true;
 			}
 		}
-		//var stage = new createjs.Stage("canvas");
-		var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-		
-		if (isTouch) {
-			//stage.enableMouseOver(20);
-			createjs.Touch.enable(stage);
-		}
+		if (isTouch) createjs.Touch.enable(stage);
 	}
 	this.frame_1 = function() {
 		root.doors = [,0,0,0,0,0,0,1,1];
@@ -4067,7 +4061,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1).call(this.frame_5).wait(1).call(this.frame_6).wait(1).call(this.frame_7).wait(1).call(this.frame_8).wait(1).call(this.frame_9).wait(1).call(this.frame_10).wait(1).call(this.frame_11).wait(1));
 
 	// txt
-	this.instance = new lib.CachedBmp_4();
+	this.instance = new lib.CachedBmp_5();
 	this.instance.setTransform(1512.75,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(12));
@@ -4205,32 +4199,32 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/main_bg.png?1769413483066", id:"main_bg"},
-		{src:"images/index_atlas_1.png?1769413483008", id:"index_atlas_1"},
-		{src:"images/index_atlas_2.png?1769413483008", id:"index_atlas_2"},
-		{src:"images/index_atlas_3.png?1769413483008", id:"index_atlas_3"},
-		{src:"images/index_atlas_4.png?1769413483008", id:"index_atlas_4"},
-		{src:"images/index_atlas_5.png?1769413483009", id:"index_atlas_5"},
-		{src:"images/index_atlas_6.png?1769413483009", id:"index_atlas_6"},
-		{src:"images/index_atlas_7.png?1769413483009", id:"index_atlas_7"},
-		{src:"images/index_atlas_8.png?1769413483009", id:"index_atlas_8"},
-		{src:"images/index_atlas_9.png?1769413483009", id:"index_atlas_9"},
-		{src:"images/index_atlas_10.png?1769413483009", id:"index_atlas_10"},
-		{src:"images/index_atlas_11.png?1769413483009", id:"index_atlas_11"},
-		{src:"sounds/ans_false.mp3?1769413483066", id:"ans_false"},
-		{src:"sounds/ans_true.mp3?1769413483066", id:"ans_true"},
-		{src:"sounds/bgm.mp3?1769413483066", id:"bgm"},
-		{src:"sounds/click.mp3?1769413483066", id:"click"},
-		{src:"sounds/end_true.mp3?1769413483066", id:"end_true"},
-		{src:"sounds/room1.mp3?1769413483066", id:"room1"},
-		{src:"sounds/room2.mp3?1769413483066", id:"room2"},
-		{src:"sounds/room3.mp3?1769413483066", id:"room3"},
-		{src:"sounds/room4.mp3?1769413483066", id:"room4"},
-		{src:"sounds/room5.mp3?1769413483066", id:"room5"},
-		{src:"sounds/room6.mp3?1769413483066", id:"room6"},
-		{src:"sounds/room7.mp3?1769413483066", id:"room7"},
-		{src:"sounds/room8.mp3?1769413483066", id:"room8"},
-		{src:"sounds/set.mp3?1769413483066", id:"set"}
+		{src:"images/main_bg.png?1770861237254", id:"main_bg"},
+		{src:"images/index_atlas_1.png?1770861237191", id:"index_atlas_1"},
+		{src:"images/index_atlas_2.png?1770861237191", id:"index_atlas_2"},
+		{src:"images/index_atlas_3.png?1770861237191", id:"index_atlas_3"},
+		{src:"images/index_atlas_4.png?1770861237191", id:"index_atlas_4"},
+		{src:"images/index_atlas_5.png?1770861237191", id:"index_atlas_5"},
+		{src:"images/index_atlas_6.png?1770861237191", id:"index_atlas_6"},
+		{src:"images/index_atlas_7.png?1770861237191", id:"index_atlas_7"},
+		{src:"images/index_atlas_8.png?1770861237191", id:"index_atlas_8"},
+		{src:"images/index_atlas_9.png?1770861237191", id:"index_atlas_9"},
+		{src:"images/index_atlas_10.png?1770861237191", id:"index_atlas_10"},
+		{src:"images/index_atlas_11.png?1770861237191", id:"index_atlas_11"},
+		{src:"sounds/ans_false.mp3?1770861237254", id:"ans_false"},
+		{src:"sounds/ans_true.mp3?1770861237254", id:"ans_true"},
+		{src:"sounds/bgm.mp3?1770861237254", id:"bgm"},
+		{src:"sounds/click.mp3?1770861237254", id:"click"},
+		{src:"sounds/end_true.mp3?1770861237254", id:"end_true"},
+		{src:"sounds/room1.mp3?1770861237254", id:"room1"},
+		{src:"sounds/room2.mp3?1770861237254", id:"room2"},
+		{src:"sounds/room3.mp3?1770861237254", id:"room3"},
+		{src:"sounds/room4.mp3?1770861237254", id:"room4"},
+		{src:"sounds/room5.mp3?1770861237254", id:"room5"},
+		{src:"sounds/room6.mp3?1770861237254", id:"room6"},
+		{src:"sounds/room7.mp3?1770861237254", id:"room7"},
+		{src:"sounds/room8.mp3?1770861237254", id:"room8"},
+		{src:"sounds/set.mp3?1770861237254", id:"set"}
 	],
 	preloads: []
 };
