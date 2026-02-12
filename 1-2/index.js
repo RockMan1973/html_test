@@ -37,7 +37,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_6 = function() {
+(lib.CachedBmp_7 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
@@ -3993,6 +3993,7 @@ if (reversed == null) { reversed = false; }
 		root.doors = [,0,0,0,0,0,0,1,1];
 		root.ans=[];
 		root.keys.Reset();
+		root.main_mc.x=0;
 	}
 	this.frame_2 = function() {
 		for (var i=1;i<=8;i++) {
@@ -4064,7 +4065,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1).call(this.frame_5).wait(1).call(this.frame_6).wait(1).call(this.frame_7).wait(1).call(this.frame_8).wait(1).call(this.frame_9).wait(1).call(this.frame_10).wait(1).call(this.frame_11).wait(1));
 
 	// txt
-	this.instance = new lib.CachedBmp_6();
+	this.instance = new lib.CachedBmp_7();
 	this.instance.setTransform(1512.75,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(12));
@@ -4202,32 +4203,32 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/main_bg.png?1770867986507", id:"main_bg"},
-		{src:"images/index_atlas_1.png?1770867986445", id:"index_atlas_1"},
-		{src:"images/index_atlas_2.png?1770867986445", id:"index_atlas_2"},
-		{src:"images/index_atlas_3.png?1770867986445", id:"index_atlas_3"},
-		{src:"images/index_atlas_4.png?1770867986445", id:"index_atlas_4"},
-		{src:"images/index_atlas_5.png?1770867986445", id:"index_atlas_5"},
-		{src:"images/index_atlas_6.png?1770867986445", id:"index_atlas_6"},
-		{src:"images/index_atlas_7.png?1770867986446", id:"index_atlas_7"},
-		{src:"images/index_atlas_8.png?1770867986446", id:"index_atlas_8"},
-		{src:"images/index_atlas_9.png?1770867986446", id:"index_atlas_9"},
-		{src:"images/index_atlas_10.png?1770867986448", id:"index_atlas_10"},
-		{src:"images/index_atlas_11.png?1770867986448", id:"index_atlas_11"},
-		{src:"sounds/ans_false.mp3?1770867986507", id:"ans_false"},
-		{src:"sounds/ans_true.mp3?1770867986507", id:"ans_true"},
-		{src:"sounds/bgm.mp3?1770867986507", id:"bgm"},
-		{src:"sounds/click.mp3?1770867986507", id:"click"},
-		{src:"sounds/end_true.mp3?1770867986507", id:"end_true"},
-		{src:"sounds/room1.mp3?1770867986507", id:"room1"},
-		{src:"sounds/room2.mp3?1770867986507", id:"room2"},
-		{src:"sounds/room3.mp3?1770867986507", id:"room3"},
-		{src:"sounds/room4.mp3?1770867986507", id:"room4"},
-		{src:"sounds/room5.mp3?1770867986507", id:"room5"},
-		{src:"sounds/room6.mp3?1770867986507", id:"room6"},
-		{src:"sounds/room7.mp3?1770867986507", id:"room7"},
-		{src:"sounds/room8.mp3?1770867986507", id:"room8"},
-		{src:"sounds/set.mp3?1770867986507", id:"set"}
+		{src:"images/main_bg.png?1770875342952", id:"main_bg"},
+		{src:"images/index_atlas_1.png?1770875342881", id:"index_atlas_1"},
+		{src:"images/index_atlas_2.png?1770875342881", id:"index_atlas_2"},
+		{src:"images/index_atlas_3.png?1770875342881", id:"index_atlas_3"},
+		{src:"images/index_atlas_4.png?1770875342881", id:"index_atlas_4"},
+		{src:"images/index_atlas_5.png?1770875342881", id:"index_atlas_5"},
+		{src:"images/index_atlas_6.png?1770875342882", id:"index_atlas_6"},
+		{src:"images/index_atlas_7.png?1770875342882", id:"index_atlas_7"},
+		{src:"images/index_atlas_8.png?1770875342882", id:"index_atlas_8"},
+		{src:"images/index_atlas_9.png?1770875342882", id:"index_atlas_9"},
+		{src:"images/index_atlas_10.png?1770875342882", id:"index_atlas_10"},
+		{src:"images/index_atlas_11.png?1770875342882", id:"index_atlas_11"},
+		{src:"sounds/ans_false.mp3?1770875342952", id:"ans_false"},
+		{src:"sounds/ans_true.mp3?1770875342952", id:"ans_true"},
+		{src:"sounds/bgm.mp3?1770875342952", id:"bgm"},
+		{src:"sounds/click.mp3?1770875342952", id:"click"},
+		{src:"sounds/end_true.mp3?1770875342952", id:"end_true"},
+		{src:"sounds/room1.mp3?1770875342952", id:"room1"},
+		{src:"sounds/room2.mp3?1770875342952", id:"room2"},
+		{src:"sounds/room3.mp3?1770875342952", id:"room3"},
+		{src:"sounds/room4.mp3?1770875342952", id:"room4"},
+		{src:"sounds/room5.mp3?1770875342952", id:"room5"},
+		{src:"sounds/room6.mp3?1770875342952", id:"room6"},
+		{src:"sounds/room7.mp3?1770875342952", id:"room7"},
+		{src:"sounds/room8.mp3?1770875342952", id:"room8"},
+		{src:"sounds/set.mp3?1770875342952", id:"set"}
 	],
 	preloads: []
 };
