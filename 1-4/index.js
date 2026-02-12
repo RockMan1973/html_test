@@ -27,7 +27,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_6 = function() {
+(lib.CachedBmp_4 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
@@ -2192,7 +2192,7 @@ if (reversed == null) { reversed = false; }
 	}
 	this.frame_15 = function() {
 		// HTML 先有 <video id="video1" src="movie.mp4" controls></video>
-		
+		/*
 		// 1. 建立 DOMElement
 		var video = document.createElement("video");
 		video.style.position = "absolute";
@@ -2206,8 +2206,13 @@ if (reversed == null) { reversed = false; }
 		//_video.x = 100;
 		//_video.y = 50;
 		root.addChild(_video);
-		
+		*/
 		// 3. 播放
+		
+		var video=document.getElementById("video");
+		video.src='mp4/vaccine.mp4';
+		video.addEventListener('ended', () => { location.reload(); });
+		video.style.display='block';
 		video.play();
 	}
 
@@ -2215,7 +2220,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(2).call(this.frame_4).wait(1).call(this.frame_5).wait(1).call(this.frame_6).wait(2).call(this.frame_8).wait(2).call(this.frame_10).wait(1).call(this.frame_11).wait(2).call(this.frame_13).wait(1).call(this.frame_14).wait(1).call(this.frame_15).wait(3));
 
 	// txt
-	this.instance = new lib.CachedBmp_6();
+	this.instance = new lib.CachedBmp_4();
 	this.instance.setTransform(1512.75,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(18));
@@ -2483,21 +2488,21 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1770115362031", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1770115362067", id:"bgm"},
-		{src:"sounds/click.mp3?1770115362067", id:"click"},
-		{src:"sounds/cut_1.mp3?1770115362067", id:"cut_1"},
-		{src:"sounds/gum_1.mp3?1770115362067", id:"gum_1"},
-		{src:"sounds/lose_1.mp3?1770115362067", id:"lose_1"},
-		{src:"sounds/right_1.mp3?1770115362067", id:"right_1"},
-		{src:"sounds/tip.mp3?1770115362067", id:"tip"},
-		{src:"sounds/title1_1.mp3?1770115362067", id:"title1_1"},
-		{src:"sounds/title2_1.mp3?1770115362067", id:"title2_1"},
-		{src:"sounds/title3_1.mp3?1770115362067", id:"title3_1"},
-		{src:"sounds/title4_1.mp3?1770115362067", id:"title4_1"},
-		{src:"sounds/title5_1.mp3?1770115362067", id:"title5_1"},
-		{src:"sounds/title6_1.mp3?1770115362067", id:"title6_1"},
-		{src:"sounds/title7_1.mp3?1770115362067", id:"title7_1"}
+		{src:"images/index_atlas_1.png?1770860805052", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1770860805093", id:"bgm"},
+		{src:"sounds/click.mp3?1770860805093", id:"click"},
+		{src:"sounds/cut_1.mp3?1770860805093", id:"cut_1"},
+		{src:"sounds/gum_1.mp3?1770860805093", id:"gum_1"},
+		{src:"sounds/lose_1.mp3?1770860805093", id:"lose_1"},
+		{src:"sounds/right_1.mp3?1770860805093", id:"right_1"},
+		{src:"sounds/tip.mp3?1770860805093", id:"tip"},
+		{src:"sounds/title1_1.mp3?1770860805093", id:"title1_1"},
+		{src:"sounds/title2_1.mp3?1770860805093", id:"title2_1"},
+		{src:"sounds/title3_1.mp3?1770860805093", id:"title3_1"},
+		{src:"sounds/title4_1.mp3?1770860805093", id:"title4_1"},
+		{src:"sounds/title5_1.mp3?1770860805093", id:"title5_1"},
+		{src:"sounds/title6_1.mp3?1770860805093", id:"title6_1"},
+		{src:"sounds/title7_1.mp3?1770860805093", id:"title7_1"}
 	],
 	preloads: []
 };
