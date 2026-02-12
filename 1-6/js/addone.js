@@ -111,7 +111,7 @@ function playDialog(id=root.currentLabel+'_os'+(root.currentFrame-root.labelFram
 	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 	dialog.pause();
 	dialog.src="sounds/"+id+".mp3";
-	log(dialog.src);
+	//log(dialog.src);
 	const playPromise = dialog.play();
 	if (playPromise !== undefined) {
     playPromise.catch(err => {
