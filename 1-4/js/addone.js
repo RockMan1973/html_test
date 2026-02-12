@@ -2,8 +2,8 @@ var listener={};
 Object.defineProperty(createjs.MovieClip.prototype, "prevFrame", {value:function(){this.gotoAndStop(Math.max(this.currentFrame-1,0))}});
 Object.defineProperty(createjs.MovieClip.prototype, "nextFrame", {value:function(){this.gotoAndStop(Math.min(this.currentFrame+1,this.totalFrames-1))}});
 Object.defineProperty(createjs.MovieClip.prototype, "getIndex", {value:function(){ return this.parent.getChildIndex(this) }});
-Object.defineProperty(createjs.MovieClip.prototype, "hitTest", {value:function(a,b,w,h){
-	return Math.abs(a.x - a.parent.x - b.x - b.parent.x) / 2 < w && Math.abs(a.y -a.parent.y - b.y - b.parent.y) / 2 < h;
+Object.defineProperty(createjs.MovieClip.prototype, "hitTest", {value:function(b,w,h){
+	return Math.abs(this.x - this.parent.x - b.x - b.parent.x) < w/2 && Math.abs(this.y - this.parent.y - b.y - b.parent.y) < h/2;
 }});
 Object.defineProperty(createjs.MovieClip.prototype, "hitTestPoint", {value:function(a){
 	//影片片段，且變形中心要移到元件左上角
@@ -12,8 +12,8 @@ Object.defineProperty(createjs.MovieClip.prototype, "hitTestPoint", {value:funct
 	var obj = { a:a, b:b, t:{ x:int(_this.x), y:int(_this.y)} };
 	obj.rx = Math.abs(a.x-b.ox);
 	obj.ry = Math.abs(a.y-b.oy);
-	obj.hit = obj.rx < b.b.width && obj.ry < b.b.height;
-	//DrawHit(a,b);
+	obj.hit = obj.rx < b.b.width/2 && obj.ry < b.b.height/2;
+	DrawHit(a,b);
 	//log( obj );
 	return obj.hit;
 }});
@@ -28,7 +28,7 @@ function DrawHit(a,b){
 	g.beginStroke("#000000");
 	g.beginFill("#ff000011");
 	g.drawCircle(a.x,a.y,10);
-	g.drawRect(b.ox, b.oy, b.b.width, b.b.height);
+	g.drawRect(b.x+b.b.x, b.y+b.b.y, b.b.width, b.b.height);
 
 }
 Object.defineProperty(createjs.MovieClip.prototype, "hitTestCenter", {value:function(mc){
@@ -44,6 +44,7 @@ Object.defineProperty(createjs.MovieClip.prototype, "hitTestCenter", {value:func
 }});
 Object.defineProperty(createjs.MovieClip.prototype, "getCenter", {value:function(){
 	var _this=this, obj;
+	//var b = _this.hitArea.nominalBounds?_this.hitArea.nominalBounds:_this.nominalBounds;
 	var b = _this.nominalBounds;
 	obj = { x:int(b.x+b.width/2+_this.x), y:int(b.y+b.height/2+_this.y), b:b, ox: _this.x, oy:_this.y };
 	return obj;
@@ -98,12 +99,18 @@ function playSound(id, loop) {
 	return createjs.Sound.play(id, {loop:loop});
 
 }
-function Draw(mc){
-	var g = new createjs.Graphics();
+function Draw(x,y,w,h){
+	if (!root.sp) {
+		root.sp=new createjs.Shape();
+		root.addChild(root.sp);
+	}
+	var g = root.sp.graphics;
+	//g.clear();
 	g.setStrokeStyle(1);
 	g.beginStroke("#000000");
-	g.beginFill("0xff000011");
-	g.drawCircle(0,0,30);
+	g.beginFill("#ff000011");
+	//g.drawCircle(a.x,a.y,10);
+	g.drawRect(x, y, w, h);
 }
 
 function drawPie(data, mc, radius = 80, color = ["#f66", "#6c6", "#66f", "#fc6", "#ccc"]) {
