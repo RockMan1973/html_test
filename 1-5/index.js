@@ -4815,13 +4815,17 @@ if (reversed == null) { reversed = false; }
 	this.pkend.name = "pkend";
 	this.pkend.setTransform(955,557);
 
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#FFFFFF").s().p("EiV/BUYMAAAiovMEr/AAAMAAACovgEhVJBD+MCovAAAMAAAiCnMiovAAAg");
+	this.shape.setTransform(960,540);
+
 	this.instance_25 = new lib.game_bg6();
 
 	this.instance_26 = new lib.game_bg7();
 
 	this.instance_27 = new lib.game_bg8();
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_11}]}).to({state:[{t:this.instance_16},{t:this.instance_15},{t:this.instance_14},{t:this.instance_13},{t:this.instance_12}]},2).to({state:[{t:this.instance_17}]},1).to({state:[{t:this.instance_18}]},1).to({state:[{t:this.instance_23},{t:this.instance_22},{t:this.instance_21},{t:this.instance_20},{t:this.instance_19}]},1).to({state:[{t:this.pkend},{t:this.instance_24}]},1).to({state:[{t:this.instance_25}]},1).to({state:[{t:this.instance_26}]},1).to({state:[{t:this.instance_27}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_11}]}).to({state:[{t:this.instance_16},{t:this.instance_15},{t:this.instance_14},{t:this.instance_13},{t:this.instance_12}]},2).to({state:[{t:this.instance_17}]},1).to({state:[{t:this.instance_18}]},1).to({state:[{t:this.instance_23},{t:this.instance_22},{t:this.instance_21},{t:this.instance_20},{t:this.instance_19}]},1).to({state:[{t:this.shape},{t:this.pkend},{t:this.instance_24}]},1).to({state:[{t:this.instance_25}]},1).to({state:[{t:this.instance_26}]},1).to({state:[{t:this.instance_27}]},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -4836,10 +4840,10 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 0.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1773036071923", id:"index_atlas_1"},
-		{src:"images/index_atlas_2.png?1773036071923", id:"index_atlas_2"},
-		{src:"images/index_atlas_3.png?1773036071923", id:"index_atlas_3"},
-		{src:"images/index_atlas_4.png?1773036071923", id:"index_atlas_4"}
+		{src:"images/index_atlas_1.png?1773048441638", id:"index_atlas_1"},
+		{src:"images/index_atlas_2.png?1773048441638", id:"index_atlas_2"},
+		{src:"images/index_atlas_3.png?1773048441638", id:"index_atlas_3"},
+		{src:"images/index_atlas_4.png?1773048441639", id:"index_atlas_4"}
 	],
 	preloads: []
 };
