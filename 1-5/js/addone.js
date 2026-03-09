@@ -55,6 +55,13 @@ Object.defineProperty(window.__proto__, "Play", {value:function() { stage.childr
 Object.defineProperty(window.__proto__, "Check", {value:function(n) { stage.children[0].Check(n); }});
 Object.defineProperty(Math.__proto__, "round2", {value:function(n,s) { return Math.round(n * Math.pow(10, s)) / Math.pow(10, s); }});
 
+function handleProgress(event) {
+  var progress = event.target.progress;
+  var percent = Math.floor(progress * 100);
+
+  document.getElementById("loading-bar-inner").style.width = percent + "%";
+  document.getElementById("loading-text").innerText = version + percent + "%";
+}
 var scale=1;
 function Resize(w,h) {
 	const iw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -79,6 +86,15 @@ function Resize(w,h) {
 }*/
 const audio = new Audio();
 const bgm = new Audio();
+bgm.src = 'sounds/bgm.mp3';
+bgm.loop=true;
+const playPromise = bgm.play();
+if (playPromise !== undefined) {
+	playPromise.catch(err => {
+		// 這裡 log 起來即可，通常不用當成 fatal error
+		//console.warn('play() rejected:', err);
+	});
+}
 function playSound(id, loop=0) {
 	//return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
 	audio.pause();
