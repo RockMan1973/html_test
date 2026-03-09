@@ -11,12 +11,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>抵抗B肝大作戰</title>
+<title>免疫系統大作戰</title>
 <!-- write your code here -->
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="index.js?1770887584928"></script>
+<script src="index.js?1772784747658"></script>
+<script>
+// Global Scripts
+	var version = '[1-4_0306_v1.0] Now Loading ';</script>
 <script src="js/addone.js"></script>
-<style>input:focus{outline:none;}</style>
+<style>
+@font-face {
+  font-family: "MyFont";
+  src: url("/font/SweiGothicCJKtc-Bold.ttf") format("truetype");
+}
+input:focus{outline:none;} 
+def{color:rgb(24,161,152); font-family:'MyFont';}
+ani{color:rgb(234,101,101); font-family:'MyFont';}
+#loading { position:absolute; left:0; top:0; width:1920px; height:1080px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:#000; color:#fff;
+}
+#loading-bar { width:300px; height:20px; border:1px solid #fff; }
+#loading-bar-inner { width:0%; height:100%; background:#0c0; }
+#loading-text { font-size:48px; }
+</style>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
@@ -32,6 +50,7 @@ function init() {
 	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
 	var lib=comp.getLibrary();
 	loader.loadManifest(lib.properties.manifest);
+  	loader.addEventListener("progress", handleProgress);
 	window.addEventListener('resize', function() { Resize(1920, 1080); });
 	Resize(1920, 1080);
 }
@@ -67,11 +86,17 @@ function playSound(id, loop, offset) {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1920px; height:1080px">
-		<canvas id="canvas" width="1920" height="1080" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 0.00); width:1920px; height:1080px">
+		<div id="loading">
+			<div id="loading-bar">
+				<div id="loading-bar-inner"></div>
+			</div>
+			<div id="loading-text">0%</div>
+		</div>
+		<video id="video" style="position:absolute; top:133px; left:410px;"></video>
+		<canvas id="canvas" width="1920" height="1080" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1920px; height:1080px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
-		<video id="video" style="position:absolute; display:none" controls="controls" ></video>
 	</div>
 </body>
 </html>
