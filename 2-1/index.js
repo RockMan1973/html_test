@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_1", frames: [[1322,3608,692,120],[0,3508,1320,160],[1922,2164,1290,810],[3214,2688,540,250],[1922,2976,1620,630],[0,3246,1110,260],[1112,3246,600,220],[3012,3608,330,140],[0,3670,330,140],[332,3670,330,140],[3544,3112,365,192],[664,3670,330,140],[3344,3670,330,140],[0,0,1920,1080],[3756,2870,320,50],[1322,3468,320,50],[4026,77,40,40],[3844,644,110,50],[3956,644,110,50],[3214,2456,600,230],[3214,2164,600,290],[996,3730,675,60],[1673,3770,675,60],[3544,2940,550,170],[1922,0,1920,1080],[3844,0,180,90],[3844,92,180,90],[3844,184,180,90],[3844,276,180,90],[3844,368,180,90],[3844,460,180,90],[3844,552,180,90],[0,1082,1920,1080],[1922,1082,1920,1080],[3756,2688,320,180],[2016,3608,330,160],[2348,3608,330,160],[3544,3306,320,180],[3544,3488,320,180],[2680,3608,330,160],[4026,0,50,37],[4026,39,50,36],[0,2164,1920,1080]]}
+		{name:"index_atlas_1", frames: [[0,3508,1320,160],[1922,2164,1290,810],[3214,2688,540,250],[1922,2976,1620,630],[0,3246,1110,260],[1112,3246,600,220],[2308,3608,330,140],[2640,3608,330,140],[2972,3608,330,140],[3544,3112,365,192],[3304,3650,330,140],[3636,3650,330,140],[0,0,1920,1080],[3756,2870,320,50],[0,3732,320,50],[4026,77,40,40],[3844,644,110,50],[3956,644,110,50],[3214,2456,600,230],[3214,2164,600,290],[0,3670,675,60],[677,3670,675,60],[3544,2940,550,170],[1922,0,1920,1080],[3844,0,180,90],[3844,92,180,90],[3844,184,180,90],[3844,276,180,90],[3844,368,180,90],[3844,460,180,90],[3844,552,180,90],[0,1082,1920,1080],[1922,1082,1920,1080],[3756,2688,320,180],[3544,3488,330,160],[1644,3608,330,160],[3544,3306,320,180],[1322,3468,320,180],[1976,3608,330,160],[4026,0,50,37],[4026,39,50,36],[0,2164,1920,1080]]}
 ];
 
 
@@ -27,303 +27,296 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_3 = function() {
+(lib.a_1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_1 = function() {
+(lib.a_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_2 = function() {
+(lib.a_3 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_3 = function() {
+(lib.a_4 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_4 = function() {
+(lib.a_5 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_5 = function() {
+(lib.a_6 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.a_6 = function() {
+(lib.bt_back = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_back = function() {
+(lib.bt_ok = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_ok = function() {
+(lib.bt_ok_locked = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_ok_locked = function() {
+(lib.bt_power = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_power = function() {
+(lib.bt_restart = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_restart = function() {
+(lib.bt_start = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(11);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.bt_start = function() {
+(lib.end_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_bg = function() {
+(lib.end_bt1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(13);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_bt1 = function() {
+(lib.end_bt2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(14);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_bt2 = function() {
+(lib.end_close = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_close = function() {
+(lib.end_loss = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_loss = function() {
+(lib.end_surplus = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_surplus = function() {
+(lib.end_table1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(18);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_table1 = function() {
+(lib.end_table2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(19);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_table2 = function() {
+(lib.end_tree = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(20);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_tree = function() {
+(lib.end_tree_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(21);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_tree_bg = function() {
+(lib.end_tree_max = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(22);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.end_tree_max = function() {
+(lib.main_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(23);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.main_bg = function() {
+(lib.power_1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(24);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_1 = function() {
+(lib.power_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(25);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_2 = function() {
+(lib.power_3 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(26);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_3 = function() {
+(lib.power_4 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(27);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_4 = function() {
+(lib.power_5 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(28);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_5 = function() {
+(lib.power_6 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(29);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_6 = function() {
+(lib.power_7 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(30);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_7 = function() {
+(lib.power_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(31);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.power_bg = function() {
+(lib.result_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(32);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.result_bg = function() {
+(lib.set_1 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(33);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_1 = function() {
+(lib.set_2 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(34);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_2 = function() {
+(lib.set_3 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(35);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_3 = function() {
+(lib.set_4 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(36);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_4 = function() {
+(lib.set_5 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(37);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_5 = function() {
+(lib.set_6 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(38);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_6 = function() {
+(lib.set_minus = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(39);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_minus = function() {
+(lib.set_plus = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(40);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.set_plus = function() {
-	this.initialize(ss["index_atlas_1"]);
-	this.gotoAndStop(41);
-}).prototype = p = new cjs.Sprite();
-
-
-
 (lib.start_bg = function() {
 	this.initialize(ss["index_atlas_1"]);
-	this.gotoAndStop(42);
+	this.gotoAndStop(41);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
@@ -2551,12 +2544,6 @@ if (reversed == null) { reversed = false; }
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(5));
 
-	// txt
-	this.instance = new lib.CachedBmp_3();
-	this.instance.setTransform(1558.75,0,0.5,0.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(6));
-
 	// 圖層_1
 	this.BT_start = new lib.start_bt();
 	this.BT_start.name = "BT_start";
@@ -2566,19 +2553,19 @@ if (reversed == null) { reversed = false; }
 	this.btns1 = new lib.btns1();
 	this.btns1.name = "btns1";
 
-	this.instance_1 = new lib.texts();
-	this.instance_1.setTransform(1154.2,594.3);
+	this.instance = new lib.texts();
+	this.instance.setTransform(1154.2,594.3);
 
-	this.instance_2 = new lib.btns2();
-	this.instance_2.setTransform(90,348,1,1,0,0,0,90,348);
+	this.instance_1 = new lib.btns2();
+	this.instance_1.setTransform(90,348,1,1,0,0,0,90,348);
 
-	this.instance_3 = new lib.end();
-	this.instance_3.setTransform(-8,1.5,1,1,0,0,0,-8,1.5);
+	this.instance_2 = new lib.end();
+	this.instance_2.setTransform(-8,1.5,1,1,0,0,0,-8,1.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.BT_start}]}).to({state:[{t:this.btns1}]},2).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.BT_start}]}).to({state:[{t:this.btns1}]},2).to({state:[{t:this.instance}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).wait(1));
 
 	// BG
-	this.instance_4 = new lib.start_bg();
+	this.instance_3 = new lib.start_bg();
 
 	this.BT_lock1 = new lib.BT_lock1();
 	this.BT_lock1.name = "BT_lock1";
@@ -2589,7 +2576,7 @@ if (reversed == null) { reversed = false; }
 	this.BT_next1.setTransform(1690,960);
 	new cjs.ButtonHelper(this.BT_next1, 0, 1, 2, false, new lib.btn1(), 3);
 
-	this.instance_5 = new lib.main_bg();
+	this.instance_4 = new lib.main_bg();
 
 	this.BT_prev1 = new lib.btn2();
 	this.BT_prev1.name = "BT_prev1";
@@ -2601,7 +2588,7 @@ if (reversed == null) { reversed = false; }
 	this.BT_next2.setTransform(1630,873.95);
 	new cjs.ButtonHelper(this.BT_next2, 0, 1, 2, false, new lib.btn3(), 3);
 
-	this.instance_6 = new lib.result_bg();
+	this.instance_5 = new lib.result_bg();
 
 	this.BT_lock3 = new lib.BT_lock3();
 	this.BT_lock3.name = "BT_lock3";
@@ -2612,16 +2599,16 @@ if (reversed == null) { reversed = false; }
 	this.BT_next3.setTransform(1718,988);
 	new cjs.ButtonHelper(this.BT_next3, 0, 1, 2, false, new lib.btn1(), 3);
 
-	this.instance_7 = new lib.power_bg();
+	this.instance_6 = new lib.power_bg();
 
 	this.BT_re = new lib.btn4();
 	this.BT_re.name = "BT_re";
 	this.BT_re.setTransform(1392.4,964.25);
 	new cjs.ButtonHelper(this.BT_re, 0, 1, 2, false, new lib.btn4(), 3);
 
-	this.instance_8 = new lib.end_bg();
+	this.instance_7 = new lib.end_bg();
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4}]}).to({state:[{t:this.instance_5},{t:this.BT_next1},{t:this.BT_lock1}]},2).to({state:[{t:this.instance_6},{t:this.BT_next2},{t:this.BT_prev1}]},1).to({state:[{t:this.instance_7},{t:this.BT_next3},{t:this.BT_lock3}]},1).to({state:[{t:this.instance_8},{t:this.BT_re}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3}]}).to({state:[{t:this.instance_4},{t:this.BT_next1},{t:this.BT_lock1}]},2).to({state:[{t:this.instance_5},{t:this.BT_next2},{t:this.BT_prev1}]},1).to({state:[{t:this.instance_6},{t:this.BT_next3},{t:this.BT_lock3}]},1).to({state:[{t:this.instance_7},{t:this.BT_re}]},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -2634,11 +2621,11 @@ lib.properties = {
 	height: 1080,
 	fps: 30,
 	color: "#FFFFFF",
-	opacity: 1.00,
+	opacity: 0.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1770787461024", id:"index_atlas_1"},
-		{src:"sounds/bgm.mp3?1770787461087", id:"bgm"},
-		{src:"sounds/click.mp3?1770787461087", id:"click"}
+		{src:"images/index_atlas_1.png?1772784703501", id:"index_atlas_1"},
+		{src:"sounds/bgm.mp3?1772784703541", id:"bgm"},
+		{src:"sounds/click.mp3?1772784703541", id:"click"}
 	],
 	preloads: []
 };
