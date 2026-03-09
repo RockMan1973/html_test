@@ -56,6 +56,13 @@ Object.defineProperty(window.__proto__, "Play", {value:function() { stage.childr
 Object.defineProperty(window.__proto__, "Check", {value:function(n) { stage.children[0].Check(n); }});
 Object.defineProperty(Math.__proto__, "round2", {value:function(n,s) { return Math.round(n * Math.pow(10, s)) / Math.pow(10, s); }});
 
+function handleProgress(event) {
+  var progress = event.target.progress;
+  var percent = Math.floor(progress * 100);
+
+  document.getElementById("loading-bar-inner").style.width = percent + "%";
+  document.getElementById("loading-text").innerText = version + percent + "%";
+}
 var scale=1;
 function Resize(w,h) {
 	const iw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
