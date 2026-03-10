@@ -5801,7 +5801,7 @@ if (reversed == null) { reversed = false; }
 			[
 				[15, 0, 10],
 				[-10, 0, 15],
-				[-5, 10, -15]
+				[-5, 15, -15]
 			],
 			[
 				[15, 0, 10],
@@ -5877,7 +5877,7 @@ if (reversed == null) { reversed = false; }
 					break;
 				case 'BT_check':
 					playSound('click');
-					root.powers.plus(root.results[root.scene][root.si]);
+					root.powers.plus(root.results[root.currentLabel.substr(1,2)][root.si]);
 					//log(root.powers,r<oot.results[root.scene][btn.getIndex()],root.scene,btn.getIndex());
 					root.item1_.t3.text=(root.results[root.scene][root.si][0]>0?'+':'')+root.results[root.scene][root.si][0];
 					root.item2_.t3.text=(root.results[root.scene][root.si][1]>0?'+':'')+root.results[root.scene][root.si][1];
@@ -6624,25 +6624,25 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 0.00,
 	manifest: [
-		{src:"images/index_atlas_1.png?1773044329512", id:"index_atlas_1"},
-		{src:"images/index_atlas_2.png?1773044329513", id:"index_atlas_2"},
-		{src:"images/index_atlas_3.png?1773044329513", id:"index_atlas_3"},
-		{src:"images/index_atlas_4.png?1773044329513", id:"index_atlas_4"},
-		{src:"images/index_atlas_5.png?1773044329515", id:"index_atlas_5"},
-		{src:"images/index_atlas_6.png?1773044329516", id:"index_atlas_6"},
-		{src:"images/index_atlas_7.png?1773044329516", id:"index_atlas_7"},
-		{src:"images/index_atlas_8.png?1773044329516", id:"index_atlas_8"},
-		{src:"images/index_atlas_9.png?1773044329516", id:"index_atlas_9"},
-		{src:"images/index_atlas_10.png?1773044329516", id:"index_atlas_10"},
-		{src:"images/index_atlas_11.png?1773044329516", id:"index_atlas_11"},
-		{src:"images/index_atlas_12.png?1773044329517", id:"index_atlas_12"},
-		{src:"images/index_atlas_13.png?1773044329517", id:"index_atlas_13"},
-		{src:"images/index_atlas_14.png?1773044329517", id:"index_atlas_14"},
-		{src:"images/index_atlas_15.png?1773044329517", id:"index_atlas_15"},
-		{src:"images/index_atlas_16.png?1773044329517", id:"index_atlas_16"},
-		{src:"images/index_atlas_17.png?1773044329517", id:"index_atlas_17"},
-		{src:"sounds/choose.mp3?1773044329585", id:"choose"},
-		{src:"sounds/click.mp3?1773044329585", id:"click"}
+		{src:"images/index_atlas_1.png?1773121360697", id:"index_atlas_1"},
+		{src:"images/index_atlas_2.png?1773121360697", id:"index_atlas_2"},
+		{src:"images/index_atlas_3.png?1773121360697", id:"index_atlas_3"},
+		{src:"images/index_atlas_4.png?1773121360698", id:"index_atlas_4"},
+		{src:"images/index_atlas_5.png?1773121360698", id:"index_atlas_5"},
+		{src:"images/index_atlas_6.png?1773121360698", id:"index_atlas_6"},
+		{src:"images/index_atlas_7.png?1773121360698", id:"index_atlas_7"},
+		{src:"images/index_atlas_8.png?1773121360699", id:"index_atlas_8"},
+		{src:"images/index_atlas_9.png?1773121360699", id:"index_atlas_9"},
+		{src:"images/index_atlas_10.png?1773121360699", id:"index_atlas_10"},
+		{src:"images/index_atlas_11.png?1773121360699", id:"index_atlas_11"},
+		{src:"images/index_atlas_12.png?1773121360699", id:"index_atlas_12"},
+		{src:"images/index_atlas_13.png?1773121360699", id:"index_atlas_13"},
+		{src:"images/index_atlas_14.png?1773121360699", id:"index_atlas_14"},
+		{src:"images/index_atlas_15.png?1773121360699", id:"index_atlas_15"},
+		{src:"images/index_atlas_16.png?1773121360700", id:"index_atlas_16"},
+		{src:"images/index_atlas_17.png?1773121360700", id:"index_atlas_17"},
+		{src:"sounds/choose.mp3?1773121360776", id:"choose"},
+		{src:"sounds/click.mp3?1773121360776", id:"click"}
 	],
 	preloads: []
 };
